@@ -3,7 +3,7 @@ quicksort
 
 Website for sorting good resources by topics. Stackoverflow-like. Gamified. Bootstrap based.
 
-Topics can be:
+Topics examples:
 
  - Songs composed by May Aufderheide
  - Free online way to listen to May Aufderheide music
@@ -23,3 +23,4 @@ Topics can be:
  - K'nex constructions
  - Easiest way for downloading youtube videos
  - Best sleep tracking applications on android
+ - ...
