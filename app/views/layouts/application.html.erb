@@ -1,14 +1,48 @@
 <!DOCTYPE html>
-<html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
 <head>
+  <meta charset="utf-8"/>
   <title>Quicksort</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+  <%= render partial: 'layouts/stylesheets_includes' %>
+  <!-- BEGIN PAGE LEVEL STYLES -->
+  <link href="assets/css/pages/error.css" rel="stylesheet" type="text/css"/>
+  <!-- END PAGE LEVEL STYLES -->
+  <link rel="shortcut icon" href="favicon.ico"/>
+
+  <%#= stylesheet_link_tag "application", :media => "all" %>
+  <%#= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="fixed-top">
+<div class="header navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <%= render partial: 'layouts/logo' %>
+      <ul class="nav pull-right">
+        <%= render partial: 'layouts/notification_dropdown' %>
+        <%= render partial: 'layouts/inbox_dropdown' %>
+        <%= render partial: 'layouts/todo_dropdown' %>
+        <%= render partial: 'layouts/login_dropdown' %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="page-container row-fluid">
+  <div class="page-sidebar nav-collapse collapse">
+    <%= render partial: 'layouts/sidebar_menu' %>
+  </div>
+  <%= yield %>
+</div>
+<%= render 'layouts/footer' %>
+<%= render 'layouts/javascripts_includes' %>
 </body>
 </html>
