@@ -6,6 +6,13 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+gem 'devise'
+gem 'pry-rails' # Pry est utilisable en production
+
+group :development, :staging do
+  gem "pry-debugger"
+  gem "debugger"
+end
 
 
 # Gems used only for assets and not required

@@ -41,7 +41,12 @@
   <div class="page-sidebar nav-collapse collapse">
     <%= render partial: 'layouts/sidebar_menu' %>
   </div>
-  <%= yield %>
+  <div class="page-content">
+    <div class="container-fluid">
+      <%= render partial: 'shared/flash_messages' %>
+      <%= yield %>
+    </div>
+  </div>
 </div>
 <%= render 'layouts/footer' %>
 <%= render 'layouts/javascripts_includes' %>
