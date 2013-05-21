@@ -12,6 +12,9 @@ gem 'pry-rails' # Pry est utilisable en production
 group :development, :staging do
   gem "pry-debugger"
   gem "debugger"
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'rails_panel'
 end
 
 
@@ -28,6 +31,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'simple_form'
+gem 'paper_trail'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

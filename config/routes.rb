@@ -1,4 +1,6 @@
 Quicksort::Application.routes.draw do
+  devise_for :users
+
   resources :links
   resources :topics
 
