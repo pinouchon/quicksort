@@ -1,0 +1,23 @@
+<link href="/assets/css/pages/search.css" rel="stylesheet" type="text/css"/>
+
+<% 1.upto 5 do %>
+    <%= render partial: 'links/link' %>
+<% end %>
+
+<% links.each do |l| %>
+    <%= render partial: 'links/link', locals: {link: l} %>
+<% end %>
+
+<div class="spac40"></div>
+<div class="pagination pagination-centered">
+  <ul>
+    <li><a href="#">Prev</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li class="active"><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</div>
+

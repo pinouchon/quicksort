@@ -1,0 +1,23 @@
+<h2>Sign in</h2>
+
+<%= simple_form_for(resource,
+                    :as => resource_name,
+                    :url => session_path(resource_name),
+                    :html => {:class => 'form-horizontal'}) do |f| %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+
+    <% if devise_mapping.rememberable? -%>
+        <div class="control-group">
+          <div class="controls">
+            <label class="checkbox">
+              <%= f.check_box :remember_me %> Remember me
+            </label>
+          </div>
+        </div>
+    <% end -%>
+
+    <%= render partial: 'devise/shared/submit' %>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

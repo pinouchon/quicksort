@@ -517,7 +517,7 @@ var App = function () {
         // wrapper function to  block element(indicate loading)
         blockUI: function (el) {
             jQuery(el).block({
-                message: '<img src="./assets/img/loading.gif" align="absmiddle">',
+                message: '<img src="/assets/img/loading.gif" align="absmiddle">',
                 css: {
                     border: 'none',
                     padding: '2px',

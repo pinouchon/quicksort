@@ -9,7 +9,13 @@
   <%= render partial: 'layouts/sidebar_search' %>
   <!-- END RESPONSIVE QUICK SEARCH FORM -->
 </li>
-<li class="start ">
+<li class="start <%= 'active' if params[:controller] == 'topics' && params[:action] == 'new' %>">
+  <a href="<%= new_topic_path %>">
+    <i class="icon-plus"></i>
+    <span class="title">New topic</span>
+  </a>
+</li>
+<li class="">
   <a href="index.html">
     <i class="icon-home"></i>
     <span class="title">Dashboard</span>
@@ -209,7 +215,7 @@
     </li>
   </ul>
 </li>
-<li class="active ">
+<li class="">
   <a href="javascript:;">
     <i class="icon-briefcase"></i>
     <span class="title">Extra</span>

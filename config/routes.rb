@@ -1,8 +1,19 @@
 Quicksort::Application.routes.draw do
-  devise_for :users
+
+  devise_for :users do
+    get '/users', to: 'devise/registrations#new'
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
+  get 'topics/:id/:slug', to: 'topics#show'
 
   resources :links
-  resources :topics
+  resources :topics do
+    collection do
+    end
+    member do
+    end
+  end
 
   root to: 'topics#index'
 

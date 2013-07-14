@@ -14,13 +14,13 @@
   <meta content="" name="author"/>
   <%= render partial: 'layouts/stylesheets_includes' %>
   <!-- BEGIN PAGE LEVEL STYLES -->
-  <link href="assets/css/pages/error.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/css/pages/error.css" rel="stylesheet" type="text/css"/>
   <!-- END PAGE LEVEL STYLES -->
   <link rel="shortcut icon" href="favicon.ico"/>
 
-  <script src="assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+  <!--<script src="/assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>-->
   <%#= stylesheet_link_tag "application", :media => "all" %>
-  <%#= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="fixed-top">
@@ -29,10 +29,19 @@
     <div class="container-fluid">
       <%= render partial: 'layouts/logo' %>
       <ul class="nav pull-right">
-        <%= render partial: 'layouts/notification_dropdown' %>
-        <%= render partial: 'layouts/inbox_dropdown' %>
-        <%= render partial: 'layouts/todo_dropdown' %>
-        <%= render partial: 'layouts/login_dropdown' %>
+        <% if user_signed_in? %>
+            <%= render partial: 'layouts/notification_dropdown' %>
+            <%= render partial: 'layouts/inbox_dropdown' %>
+            <%= render partial: 'layouts/todo_dropdown' %>
+            <%= render partial: 'layouts/login_dropdown' %>
+        <% else %>
+            <li>
+              <a href='<%= new_user_session_path %>'>Login</a>
+            </li>
+            <li>
+              <a href='<%= new_user_registration_path %>'>Register</a>
+            </li>
+        <% end %>
       </ul>
     </div>
   </div>
