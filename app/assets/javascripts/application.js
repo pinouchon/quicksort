@@ -10,6 +10,19 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
+//= require jquery-1.8.3.min.js
 //= require jquery_ujs
 //= require_tree .
+
+$('.ajaxForm').live('submit', function() {
+
+    $(this).find('button[type=submit]').addClass('disabled');
+    $(this).find('button[type=submit] i').removeClass().addClass('icon-refresh icon-spin');
+});
+$(function () {
+    var converter = new Attacklab.showdown.converter();
+    $('.markdown').each(function () {
+        var html = converter.makeHtml($(this).text());
+        $(this).html(html)
+    })
+});

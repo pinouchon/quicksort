@@ -1,1 +1,16 @@
-alert('create')
+<% if @link.valid? %>
+//flash('notice', 'Link');
+$newLink = $('<%= j render partial: 'links/link', locals: {link: @link} %>');
+$('#links').append($newLink.fadeIn());
+$('.link').removeClass('selected');
+$('#link-' + <%= @link.id %>).addClass('selected');
+$('body').animate({
+    scrollTop: $('#link-' + <%= @link.id %>).offset().top
+}, 1000);
+<% @link = Link.new %>
+
+<% else %>
+
+<% end %>
+$('#new_link').replaceWith('<%= j render partial: 'links/form' %>');
+$("#my_wmd").wmd();

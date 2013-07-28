@@ -1,27 +1,30 @@
-<div class="row-fluid">
+<% link ||= Link.new %>
+
+<div class="row-fluid link" id="link-<%= link.id %>" data-id='<%= link.id %>'>
   <div class="booking-blocks">
-    <div class="pull-left booking-img">
-      <img src="/assets/img/gallery/image4.jpg" alt="">
-      <ul class="unstyled">
-        <li><i class="icon-money"></i> From $126</li>
-        <li><i class="icon-map-marker"></i> Tioman, Malaysia</li>
-      </ul>
-    </div>
+    <%= render partial: 'links/vote', locals: {votable: link} %>
+    <!--<img src="/assets/img/gallery/image4.jpg" alt="">-->
     <div style="overflow:hidden;">
-      <h2><a href="#">Here Any Title</a></h2>
+      <h2 style="font-weight: 500">
+        <a rel='nofollow' href="<%= link.href_with_protocol %>"><%= link.name %></a>
+      </h2>
       <!--<ul class="unstyled inline">-->
-        <!--<li><i class="icon-star"></i></li>-->
-        <!--<li><i class="icon-star"></i></li>-->
-        <!--<li><i class="icon-star"></i></li>-->
-        <!--<li><i class="icon-star"></i></li>-->
-        <!--<li><i class="icon-star-empty"></i></li>-->
+      <!--<li><i class="icon-star"></i></li>-->
+      <!--<li><i class="icon-star"></i></li>-->
+      <!--<li><i class="icon-star"></i></li>-->
+      <!--<li><i class="icon-star"></i></li>-->
+      <!--<li><i class="icon-star-empty"></i></li>-->
       <!--</ul>-->
-      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
-        corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
-        culpa qui officia deserunt mollitia animi, id est laborum. Sed et quam lacus. Fusce condimentum eleifend enim a
-        feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat <a href="#">read more</a></p>
+      <p class='markdown'><%= link.description %>
+        <!--<a href="#">read more</a>-->
+      </p>
+
+      <div style="color: #777;" class='edit-links'>
+        <a href="javascript:;"><i class="icon-pencil" style="color: #78ccf8"></i> Edit</a> |
+        <a href="javascript:;"><i class="icon-map-marker" style="color: #78ccf8"></i> Another action</a> |
+        <a href="javascript:;"><i class="icon-map-marker" style="color: #78ccf8"></i> End</a>
+      </div>
     </div>
   </div>
 </div>
-<hr>
+<hr class='nomargin'>

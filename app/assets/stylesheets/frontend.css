@@ -1,0 +1,26 @@
+.link {
+    margin-top: 10px;
+}
+
+.link.selected {
+    width: calc(100% -20px);
+    margin-top: 0px;
+    background-color: rgb(219, 238, 255);
+    padding: 10px;
+}
+
+hr.nomargin {
+    margin: 0;
+}
+
+a:visited {
+    color: #609
+}
+
+.edit-links {
+
+}
+
+.edit-links a i {
+    text-decoration: none;
+}

@@ -1,12 +1,14 @@
 <link href="/assets/css/pages/search.css" rel="stylesheet" type="text/css"/>
 
-<% 1.upto 5 do %>
-    <%= render partial: 'links/link' %>
-<% end %>
+<div id="links">
+  <% 1.upto 0 do %>
+      <%= render partial: 'links/link' %>
+  <% end %>
 
-<% links.each do |l| %>
-    <%= render partial: 'links/link', locals: {link: l} %>
-<% end %>
+  <% links.each do |l| %>
+      <%= render partial: 'links/link', locals: {link: l} %>
+  <% end %>
+</div>
 
 <div class="spac40"></div>
 <div class="pagination pagination-centered">

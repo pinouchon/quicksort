@@ -1,11 +1,4 @@
 <script type="text/javascript">
-    $(function () {
-        var converter = new Attacklab.showdown.converter();
-        $('.markdown').each(function () {
-            var html = converter.makeHtml($(this).text());
-            $(this).html(html)
-        })
-    });
 </script>
 
 <!--<h3 class="page-title">-->
@@ -82,4 +75,4 @@
 </div>
 
 <%= render partial: 'links/links', locals: {links: Link.all} %>
-<%= render partial: 'links/form', locals: {link: Link.new} %>
+<%= render partial: 'links/form_with_wrapper', locals: {link: Link.new} %>

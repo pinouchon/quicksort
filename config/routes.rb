@@ -14,6 +14,14 @@ Quicksort::Application.routes.draw do
     member do
     end
   end
+  resources :votes do
+    collection do
+      post :vote
+    end
+    member do
+    end
+  end
+
 
   root to: 'topics#index'
 

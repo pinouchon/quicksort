@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  votable_id: 1
+  votable_type: MyString
+  user_id: 1
+  value: 1
+
+two:
+  votable_id: 1
+  votable_type: MyString
+  user_id: 1
+  value: 1

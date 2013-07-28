@@ -1,72 +1,50 @@
-<script type="text/javascript">
-    $(function () {
-        $("#my_wmd").wmd();
-    });
-</script>
+<%= simple_form_for(@link || Link.new,
+                    html: {class: 'form-inline ajaxForm'},
+                    remote: true) do |f| %>
 
-<div>
-  <div class="portlet">
-    <div class="portlet-title">
-      <h4><i class="icon-reorder"></i>New link</h4>
+    <div class="row-fluid">
+      <div class="span6 ">
+        <%= f.input :name, label: 'Link name', input_html: {class: 'm-wrap span12', placeholder: 'name'} %>
+        <!--<div class="control-group">-->
+        <!--<label class="control-label" for="firstName">First Name</label>-->
 
-      <div class="tools">
-        <a href="javascript:;" class="collapse"></a>
-        <!--<a href="#portlet-config" data-toggle="modal" class="config"></a>-->
-        <!--<a href="javascript:;" class="reload"></a>-->
-        <!--<a href="javascript:;" class="remove"></a>-->
+        <!--<div class="controls">-->
+        <!--<input type="text" id="firstName" class="m-wrap span12" placeholder="Chee Kin">-->
+        <!--&lt;!&ndash;<span class="help-block">This is inline help</span>&ndash;&gt;-->
+        <!--</div>-->
+        <!--</div>-->
+      </div>
+      <!--/span-->
+      <div class="span6 ">
+        <%= f.input :href, label: 'href', input_html: {class: 'm-wrap span12', placeholder: 'http://'} %>
+        <!--<div class="control-group error">-->
+        <!--<label class="control-label" for="lastName">Last Name</label>-->
+
+        <!--<div class="controls">-->
+        <!--<input type="text" id="lastName" class="m-wrap span12" placeholder="Lim">-->
+        <!--&lt;!&ndash;<span class="help-block">This field has error.</span>&ndash;&gt;-->
+        <!--</div>-->
+        <!--</div>-->
+      </div>
+      <!--/span-->
+    </div>
+
+
+    <div class="control-group">
+      <!--<label class="control-label"></label>-->
+
+      <div class="controls">
+        <%= f.text_area :description, placeholder: 'Short explanation of what the content is about',
+                        class: 'span12 m-wrap wmd-input', id: 'my_wmd', rows: '4' %>
       </div>
     </div>
-    <div class="portlet-body">
-      <%= simple_form_for(Link.new,
-                          html: {class: 'form-inline'},
-                          remote: true) do |f| %>
-
-          <div class="row-fluid">
-            <div class="span6 ">
-              <%= f.input :name, label: 'Link name', input_html: {class: 'm-wrap span12', placeholder: 'name'} %>
-              <!--<div class="control-group">-->
-              <!--<label class="control-label" for="firstName">First Name</label>-->
-
-              <!--<div class="controls">-->
-              <!--<input type="text" id="firstName" class="m-wrap span12" placeholder="Chee Kin">-->
-              <!--&lt;!&ndash;<span class="help-block">This is inline help</span>&ndash;&gt;-->
-              <!--</div>-->
-              <!--</div>-->
-            </div>
-            <!--/span-->
-            <div class="span6 ">
-              <%= f.input :href, label: 'href', input_html: {class: 'm-wrap span12', placeholder: 'http://'} %>
-              <!--<div class="control-group error">-->
-              <!--<label class="control-label" for="lastName">Last Name</label>-->
-
-              <!--<div class="controls">-->
-              <!--<input type="text" id="lastName" class="m-wrap span12" placeholder="Lim">-->
-              <!--&lt;!&ndash;<span class="help-block">This field has error.</span>&ndash;&gt;-->
-              <!--</div>-->
-              <!--</div>-->
-            </div>
-            <!--/span-->
-          </div>
-
-
-          <div class="control-group">
-            <!--<label class="control-label"></label>-->
-
-            <div class="controls">
-              <%= f.text_area :description, class: 'span12 m-wrap wmd-input', id: 'my_wmd', rows: '4' %>
-            </div>
-          </div>
-          <div class="form-actions">
-            <%= button_tag(type: 'submit', class: "btn blue") do %>
-                <i class="icon-ok"></i> Create</button>
-            <% end %>
-
-            <a href='<%= url_for :back %>' class='btn'>
-              Cancel
-            </a>
-          </div>
+    <div class="form-actions">
+      <%= button_tag(type: 'submit', class: "btn blue") do %>
+          <i class="icon-ok"></i> Create
       <% end %>
 
+      <a href='<%= url_for :back %>' class='btn'>
+        Cancel
+      </a>
     </div>
-  </div>
-</div>
+<% end %>

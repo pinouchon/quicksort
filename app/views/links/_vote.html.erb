@@ -1,0 +1,77 @@
+<% if !@once_flag && @once_flag=1 %>
+    <style type=text/css>
+        .link-rating {
+            width: 35px;
+            font-size: 22px;
+            text-align: center;
+            margin: -5px 10px 0 0;
+        }
+
+        .link .vote-btn {
+            cursor: pointer;
+        }
+
+        .carret-big {
+            font-size: 33px;
+        }
+
+        .vote-up.vote1 {
+            height: 27px
+        }
+
+        .vote-up.vote2 {
+            height: 9px;
+            position: relative;
+        }
+
+        .vote-down.vote1 {
+            height: 9px;
+            margin-top: -8px
+        }
+
+        .vote-down.vote2 {
+            height: 27px;
+        }
+
+        .red {
+            color: #e02222;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $('.vote-up').live('click', function() {
+                $.ajax({
+                    type: "POST",
+                    url: <%= vote_votes_path %>,
+                    data: {},
+                    success: success,
+                    dataType: dataType
+                });
+            });
+        });
+    </script>
+<% end %>
+
+<% user_vote = votable.user_vote(current_user) %>
+<div class='pull-left link-rating'>
+  <% if user_vote && user_vote.value >= 1 %>
+      <div class='vote-btn vote-up vote2'>
+        <i class='icon-caret-up carret-big' style="z-index: 3"></i>
+      </div>
+  <% end %>
+  <div class='vote-btn vote-up vote1 <%= 'red' if user_vote && user_vote >= 1 %>'>
+    <i class='icon-caret-up carret-big' style="z-index: 2;"></i>
+  </div>
+  <div style="font-size: 20px">
+    <%= rand(0..25) %>
+    <i class="icon-refresh icon-spin hide"></i>
+  </div>
+  <div class='vote-btn vote-down vote1 <%= 'red' if user_vote && user_vote >= 1 %>'>
+    <i class='icon-caret-down carret-big'></i>
+  </div>
+  <% if user_vote && user_vote.value >= 1 %>
+      <div class='vote-btn vote-down vote2'>
+        <i class='icon-caret-down carret-big'></i>
+      </div>
+  <% end %>
+</div>
