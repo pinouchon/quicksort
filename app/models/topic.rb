@@ -5,7 +5,7 @@ class Topic < ActiveRecord::Base
   has_many :votes, as: :votable
 
   def to_param
-    "#{id}/#{name.parameterize}"
+    "#{id}-#{name.parameterize}"
   end
 
 end

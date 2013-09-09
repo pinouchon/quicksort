@@ -1,9 +1,6 @@
 <link href="/assets/css/pages/search.css" rel="stylesheet" type="text/css"/>
 
 <div id="links">
-  <% 1.upto 0 do %>
-      <%= render partial: 'links/link' %>
-  <% end %>
 
   <% links.each do |l| %>
       <%= render partial: 'links/link', locals: {link: l} %>
