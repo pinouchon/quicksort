@@ -1,16 +1,16 @@
 quicksort
 =========
 
-Website for sorting good resources by topics. Stackoverflow-like. Gamified. Bootstrap based.
+Website for sorting good resources by topics. Mix between quora, stackoverflow and reddit.
+
+Anyone can create a topic and add links related to it. You gain 10rep when you get upvoted on a topic or link. More rules to handle moderation made by the comminuty (comment, downvote, edit, vote to close with reputation thresholds)
 
 Topics examples:
 
  - Songs composed by May Aufderheide
  - Free online way to listen to May Aufderheide music
- - Best laptop for unix development (given those additional constraints...)
+ - Best laptop for unix development
  - Free resources to learn music online
- - Free resources to learn
- - Most inspiring videos
  - Your favorites TED videos
  - Leading ressearchers in machine learning
  - New concepts in the area of machine learning
