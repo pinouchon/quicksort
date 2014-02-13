@@ -4,12 +4,20 @@ class VotesController < ApplicationController
     .where('votable_id = ? AND votable_type = ?', params[:votable_id], params[:votable_type])
     .first
     if !vote
-      vote = Vote.create(params.merge(user_id: current_user.id))
+      vote = Vote.create(
+          votable_id: params[:votable_id],
+          votable_type: params[:votable_type],
+          value: params[:value],
+          user_id: current_user.id)
     end
     vote.value = params[:value]
     vote.save
-    @votable_id = params[:votable_id]
-    @votable_type = params[:votable_type]
+    @error = nil
+    if !vote || !vote.valid?
+      @error = vote.errors.full_messages.to_s
+    end
+    #@votable_id = params[:votable_id]
+    #@votable_type = params[:votable_type]
   end
   #def index
   #  @votes = Vote.all

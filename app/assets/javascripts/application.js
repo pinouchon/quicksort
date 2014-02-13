@@ -26,3 +26,20 @@ $(function () {
         $(this).html(html)
     })
 });
+
+var app = {
+  init: function() {
+  },
+
+  flash: function(type, message) {
+    $("html, body").animate({ scrollTop: 0 }, 'fast');
+    if (type == 'notice') {
+      type = 'success';
+    }
+    $('#flash').html('<div class="alert alert-'+type+'">'+message+'</div>').hide().fadeIn('slow');
+  },
+
+  user_signed_in: function () {
+    return $('body').data('signed-in');
+  }
+};

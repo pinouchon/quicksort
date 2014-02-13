@@ -44,16 +44,16 @@
         }
 
         .vote-down.vote1 {
-            top: 41px;
+            top: 40px;
         }
 
         .vote-down.vote2 {
-            top: 50px;
+            top: 49px;
         }
 
         .vote-value {
             position: absolute;
-            top: 19px;
+            top: 18px;
             width: 18px;
             text-align: center;
         }
@@ -64,44 +64,105 @@
 
     </style>
     <script type="text/javascript">
+        function refresh_colors($vote_partial, value) {
+            $vote_partial.find('.vote-btn').removeClass('red');
+            if (value >= 2) {
+                $vote_partial.find('.vote-up.vote1').addClass('red');
+                $vote_partial.find('.vote-up.vote2').addClass('red');
+            }
+            if (value >= 1) {
+                $vote_partial.find('.vote-up.vote1').addClass('red');
+            }
+            if (value <= -2) {
+                $vote_partial.find('.vote-down.vote1').addClass('red');
+                $vote_partial.find('.vote-down.vote2').addClass('red');
+            }
+            if (value <= -1) {
+                $vote_partial.find('.vote-down.vote1').addClass('red');
+            }
+        }
+
+        function refresh_hidden_btns($vote_partial, value) {
+            $vote_partial.find('.vote-up.vote2').addClass('hide');
+            $vote_partial.find('.vote-down.vote2').addClass('hide');
+            if (value < 0) {
+                $vote_partial.find('.vote-down.vote2').removeClass('hide');
+            } else if (value > 0) {
+                $vote_partial.find('.vote-up.vote2').removeClass('hide');
+            }
+        }
+
         $(function () {
-            $('.vote-up').live('click', function () {
+            $('.vote-up, .vote-down').live('click', function () {
+                if (!app.user_signed_in()) {
+                    app.flash('error', 'You need an <%= link_to('account', new_user_registration_path) %> to be able to vote.')
+                    return;
+                }
+
+                var $vote_partial = $(this).closest('.vote-partial');
+                var $link_partial = $(this).closest('.link');
+
+                var sign = $(this).hasClass('vote-up') ? 1 : -1;
+                var factor = $(this).hasClass('vote1') ? 1 : 2;
+                var votable_id = $link_partial.data('id');
+                var votable_type = $link_partial.data('type');
+                var value = sign * factor;
+
+                if (value == $vote_partial.data('user-vote')) value = 0;
+
+                var base_value = $vote_partial.data('base-total-votes');
+                $vote_partial.find('.vote-value').text(base_value + value);
+                refresh_colors($vote_partial, value);
+                refresh_hidden_btns($vote_partial, value);
+                $vote_partial.data('user-vote', value);
+
+//                console.log('new vote with params:', { votable_id: votable_id,
+//                    votable_type: votable_type,
+//                    value: value});
+
                 $.ajax({
                     type: "POST",
-                    url: <%= vote_votes_path %>,
-                    data: {},
-                    success: success,
-                    dataType: dataType
+                    url: '<%= vote_votes_path %>',
+                    data: {
+                        votable_id: votable_id,
+                        votable_type: votable_type,
+                        value: value
+                    },
+                    success: function () {
+                        var base_value = $vote_partial.data('base-total-votes');
+                        $vote_partial.find('.vote-value').text(base_value + value);
+
+//                        refresh_colors($vote_partial, value);
+//                        refresh_hidden_btns($vote_partial, value);
+                    },
+                    dataType: 'script'
                 });
             });
         });
     </script>
 <% end %>
-<% user_vote = user_signed_in? ? votable.user_vote(current_user) : nil
-   #vote_value = user_vote.value
-   @c ||= -4
-   @c = @c + 1
-   vote_value = @c
+<%
+   user_vote = votable.user_vote(current_user)
+   user_vote_value = user_vote ? user_vote.value : 0
+   total_votes_without = votable.total_votes_without(user_signed_in? ? current_user.id : nil)
 %>
-<div class='pull-left link-rating'>
-  <% if vote_value && vote_value >= 2 %>
-      <div class='vote-btn vote-up vote2'>
-        <i class='icon-chevron-up icon-vote' style="z-index: 3"></i>
-      </div>
-  <% end %>
-  <div class='vote-btn vote-up vote1 <%= 'red' if vote_value && vote_value >= 1 %>'>
+<div class='pull-left link-rating vote-partial'
+     data-base-total-votes='<%= total_votes_without %>'
+     data-user-vote='<%= user_vote_value %>'>
+  <div class='vote-btn vote-up vote2 <%= 'red' if user_vote_value >= 2 %> <%= 'hide' if user_vote_value <= 0 %>'>
+    <i class='icon-chevron-up icon-vote' style="z-index: 3"></i>
+  </div>
+  <div class='vote-btn vote-up vote1 <%= 'red' if user_vote_value >= 1 %>'>
     <i class='icon-chevron-up icon-vote' style="z-index: 2;"></i>
   </div>
   <div class='vote-value' style="font-size: 17px">
-    <%= vote_value %>
+    <%= votable.total_votes %>
     <i class="icon-refresh icon-spin hide"></i>
   </div>
-  <div class='vote-btn vote-down vote1 <%= 'red' if vote_value && vote_value <= -1 %>' onclick='console.log(-1);'>
+  <div class='vote-btn vote-down vote1 <%= 'red' if user_vote_value <= -1 %>'>
     <i class='icon-chevron-down icon-vote'></i>
   </div>
-  <% if vote_value && vote_value <= -1 %>
-      <div class='vote-btn vote-down vote2 <%= 'red' if vote_value <= -2 %>' onclick='console.log(-2);'>
-        <i class='icon-chevron-down icon-vote'></i>
-      </div>
-  <% end %>
+  <div class='vote-btn vote-down vote2 <%= 'red' if user_vote_value <= -2 %> <%= 'hide' if user_vote_value >= 0 %>'>
+    <i class='icon-chevron-down icon-vote'></i>
+  </div>
 </div>

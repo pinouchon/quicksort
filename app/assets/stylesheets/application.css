@@ -11,3 +11,27 @@
  *= require_self
  *= require frontend
  */
+
+.brand_text .brand1 {
+    text-shadow: 0px 0px 1px #AAAAAA;
+    color: #CCC;
+}
+
+a.brand:hover .brand1 {
+    color: white;
+    text-shadow: 0px 0px 1px white;
+}
+
+.brand_text .brand2 {
+    color: #e02222;
+    text-shadow: 0px 0px 1px #FF0000;
+}
+a.brand:hover .brand2 {
+    color: #e05546;
+    text-shadow: 0px 0px 1px #e05546;
+}
+
+.alert {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}

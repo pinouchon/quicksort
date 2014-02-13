@@ -1,1 +1,3 @@
-alert('vote!')
+<% if @error %>
+alert("<%= @error.inspect %>");
+<% end %>

@@ -12,10 +12,16 @@ class Link < ActiveRecord::Base
   end
 
   def user_vote(user)
+    return nil if !user
     votes.where('user_id = ?', user.id).first
   end
 
-  def votes_total
-    votes.map(&:value).reduce(:+)
+  def total_votes
+    votes.map(&:value).reduce(:+) || 0
+  end
+
+  def total_votes_without(user_id = nil)
+    return total_votes if !user_id
+    votes.where('user_id != ?', user_id).map(&:value).reduce(:+) || 0
   end
 end

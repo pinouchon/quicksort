@@ -1,5 +1,7 @@
 Quicksort::Application.routes.draw do
 
+  devise_for :users
+
   devise_for :users do
     get '/users', to: 'devise/registrations#new'
     get '/users/sign_out' => 'devise/sessions#destroy'

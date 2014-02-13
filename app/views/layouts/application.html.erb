@@ -23,11 +23,12 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="fixed-top" id="body">
+<body class="fixed-top" id="body" data-signed-in='<%= user_signed_in?.to_s %>'>
 <div class="header navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container-fluid">
       <%= render partial: 'layouts/logo' %>
+      <%= render partial: 'layouts/menu' %>
       <ul class="nav pull-right">
         <% if user_signed_in? %>
             <%= render partial: 'layouts/notification_dropdown' %>
@@ -46,17 +47,49 @@
     </div>
   </div>
 </div>
-<div class="page-container row-fluid">
-  <div class="page-sidebar nav-collapse collapse">
-    <%= render partial: 'layouts/sidebar_menu' %>
+<!--<div class="page-container row-fluid">-->
+<!--<div class="page-sidebar nav-collapse collapse">-->
+<!--<%#= render partial: 'layouts/sidebar_menu' %>-->
+<!--</div>-->
+<!--<div class="page-content">-->
+<!--<div class="container-fluid">-->
+<!--<%#= render partial: 'shared/flash_messages' %>-->
+<!--<%#= yield %>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="page-container row-fluid full-width-page">
+  <!-- BEGIN EMPTY PAGE SIDEBAR -->
+  <div class="page-sidebar nav-collapse collapse visible-phone visible-tablet">
   </div>
-  <div class="page-content">
+  <!-- END EMPTY PAGE SIDEBAR -->
+  <!-- BEGIN PAGE -->
+  <div class="page-content no-min-height">
+    <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+    <div id="portlet-config" class="modal hide">
+      <div class="modal-header">
+        <button data-dismiss="modal" class="close" type="button"></button>
+        <h3>portlet Settings</h3>
+      </div>
+      <div class="modal-body">
+        <p>Here will be a configuration form</p>
+      </div>
+    </div>
     <div class="container-fluid">
-      <%= render partial: 'shared/flash_messages' %>
-      <%= yield %>
+      <div class="row-fluid">
+        <div class='span9'>
+          <%= render partial: 'shared/flash_messages' %>
+          <%= yield %>
+        </div>
+        <div class="span3 sidebar-content ">
+          <%= render partial: 'layouts/sidebar_content' %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+
 <%= render 'layouts/footer' %>
 <%= render 'layouts/javascripts_includes' %>
 </body>

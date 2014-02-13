@@ -1,6 +1,6 @@
 <% link ||= Link.new %>
 
-<div class="row-fluid link" id="link-<%= link.id %>" data-id='<%= link.id %>'>
+<div class="row-fluid link" id="link-<%= link.id %>" data-id='<%= link.id %>' data-type='<%= link.class.name %>'>
   <div class="booking-blocks">
     <%= render partial: 'links/vote', locals: {votable: link} %>
     <!--<img src="/assets/img/gallery/image4.jpg" alt="">-->
