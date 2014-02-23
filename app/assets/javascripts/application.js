@@ -32,7 +32,8 @@ var app = {
   },
 
   flash: function(type, message) {
-    $("html, body").animate({ scrollTop: 0 }, 'fast');
+    $('.alert').remove();
+    //$("html, body").animate({ scrollTop: 0 }, 'fast');
     if (type == 'notice') {
       type = 'success';
     }

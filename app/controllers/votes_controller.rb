@@ -1,23 +1,54 @@
 class VotesController < ApplicationController
+  #skip_before_filter :verify_authenticity_token
+  #before_filter :authenticate_user!
+
   def vote
-    vote = current_user.votes
+    #binding.pry
+    if !['-1', '-2', '0', '1', '2'].include?(params[:value])
+      render json: {success: false,
+                    error_message: 'Incorrect value. Must be -1, -2, 0, 1 or 2',
+                    total: 0,
+                    value: 0}
+      return
+    end
+    #binding.pry
+    vote = current_user.votes_cast
     .where('votable_id = ? AND votable_type = ?', params[:votable_id], params[:votable_type])
     .first
     if !vote
-      vote = Vote.create(
+      vote = Vote.new(
           votable_id: params[:votable_id],
           votable_type: params[:votable_type],
           value: params[:value],
           user_id: current_user.id)
     end
     vote.value = params[:value]
+
+    if current_user.id == vote.votable.user.id
+      render json: {success: false,
+                    error_message: 'You cannot vote on your own post.',
+                    total: vote.votable.total_votes,
+                    value: 0}
+      return
+    end
     vote.save
+
+    #update reputation
+    current_user.recalculate_reputation # voter
+    receiver = User.find(vote.votable.user)
+    receiver.recalculate_reputation if receiver
+
     @error = nil
     if !vote || !vote.valid?
-      @error = vote.errors.full_messages.to_s
+      render json: {success: false,
+                    error_message: vote.errors.full_messages.to_s,
+                    total: vote.votable.total_votes,
+                    value: 0}
+      return
     end
     #@votable_id = params[:votable_id]
     #@votable_type = params[:votable_type]
+    render json: {success: true, value: vote.value, total: vote.votable.total_votes}
   end
   #def index
   #  @votes = Vote.all

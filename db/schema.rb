@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726203437) do
+ActiveRecord::Schema.define(:version => 20140223213851) do
 
   create_table "badges_sashes", :force => true do |t|
     t.integer  "badge_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20130726203437) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "href"
+    t.integer  "user_id"
   end
 
   create_table "merit_actions", :force => true do |t|
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20130726203437) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -93,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20130726203437) do
     t.string   "name"
     t.integer  "sash_id"
     t.integer  "level",                  :default => 0
+    t.integer  "reputation",             :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -105,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20130726203437) do
     t.integer  "value"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "author_id"
   end
 
   add_index "votes", ["votable_id", "votable_type"], :name => "index_votes_on_votable_id_and_votable_type"

@@ -36,6 +36,7 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(params[:link])
+    @link.user_id = current_user.id
 
     if @link.save
       #flash[:notice] = 'Link was successfully created.'

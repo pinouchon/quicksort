@@ -2,6 +2,7 @@ class Link < ActiveRecord::Base
   attr_accessible :description, :name, :href, :topic_id
 
   belongs_to :topic
+  belongs_to :user
   has_many :votes, as: :votable
 
   validates_presence_of :name

@@ -54,7 +54,7 @@
         .vote-value {
             position: absolute;
             top: 18px;
-            width: 18px;
+            width: 20px;
             text-align: center;
         }
 
@@ -121,21 +121,28 @@
 //                    value: value});
 
                 $.ajax({
-                    type: "POST",
+                    type: 'POST',
                     url: '<%= vote_votes_path %>',
+                    dataType: 'json',
                     data: {
                         votable_id: votable_id,
                         votable_type: votable_type,
                         value: value
                     },
-                    success: function () {
-                        var base_value = $vote_partial.data('base-total-votes');
-                        $vote_partial.find('.vote-value').text(base_value + value);
+                    success: function (data) {
+                        if (data.success) {
+                            var base_value = $vote_partial.data('base-total-votes');
+                            $vote_partial.find('.vote-value').text(base_value + value);
+                        } else {
+                            app.flash('error', data.error_message);
+                            $('#flash').hide();
+                            $('#flash > div').prependTo($link_partial).hide().fadeIn(500);
+                        }
 
-//                        refresh_colors($vote_partial, value);
-//                        refresh_hidden_btns($vote_partial, value);
-                    },
-                    dataType: 'script'
+                        refresh_colors($vote_partial, data.value);
+                        refresh_hidden_btns($vote_partial, data.value);
+                        $vote_partial.find('.vote-value').text(data.total);
+                    }
                 });
             });
         });
