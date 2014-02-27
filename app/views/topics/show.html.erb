@@ -8,71 +8,120 @@
 
 <!--<br/>-->
 
-<h1 class="page-title"><%= @topic.name %></h1>
+<style>
+    .page-title {
+        margin: 5px
+    }
 
-<div class="portlet box blue tabbable">
-  <div class="portlet-title">
-    <h4>
-      <i class="icon-reorder"></i>
-      <span class="hidden-480"><%= @topic.name %></span>
-      &nbsp;
-    </h4>
-  </div>
-  <div class="portlet-body form">
-    <div class="tabbable portlet-tabs">
-      <ul class="nav nav-tabs">
-        <li><a href="#portlet_tab3" data-toggle="tab">Edit</a></li>
-        <li><a href="#portlet_tab2" data-toggle="tab">Help</a></li>
-        <li class="active"><a href="#portlet_tab1" data-toggle="tab"><%= @topic.name %></a></li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane active" id="portlet_tab1">
-          <!-- BEGIN FORM-->
-          <div class='markdown' class='span12 wmd-preview'>
-            <%= @topic.description %>
-          </div>
-          <% if false %>
-              <%= simple_form_for(@topic,
-                                  :html => {:class => 'form-horizontal'}) do |f| %>
-                  <%= f.input :name, label: 'Title', input_html: {class: 'span12'} %>
+    .tabbable-custom.tabbable-full-width .nav-tabs > li > a {
+        padding: 4px 14px;
+    }
 
-                  <div class="control-group">
-                    <label class="control-label"></label>
+    .tabbable-custom.tabbable-full-width > .tab-content {
+        padding: 7px 0;
+    }
+</style>
 
-                    <div class="controls">
-                      <%= f.text_area :description, class: 'span12 m-wrap wmd-input', id: 'my_wmd', rows: '6' %>
-                      <!--<textarea class="span12 m-wrap wmd-input" id='my_wmd' rows="6"></textarea>-->
-                    </div>
+<br/>
+<h1 class="page-title" style="float: left; line-height: 34px"><%= @topic.name %></h1>
+
+<div class="tabbable tabbable-custom tabbable-full-width">
+  <!--<ul class="nav nav-tabs" style="float: right">-->
+  <!--<li class="active"><a href="#tab_1_1" data-toggle="tab">Overview</a></li>-->
+  <!--<li><a href="#tab_1_2" data-toggle="tab">Profile Info</a></li>-->
+  <!--<li><a href="#tab_1_3" data-toggle="tab">Account</a></li>-->
+  <!--</ul>-->
+  <div style="clear:both"></div>
+  <div class="tab-content" style="padding: 10px 0 0 0">
+    <div class="tab-pane active" id="portlet_tab1">
+
+      <%= render partial: 'links/vote', locals: {votable: @topic} %>
+      <div style="overflow: hidden">
+        <!-- BEGIN FORM-->
+        <div class='markdown' class='span12 wmd-preview'><!--
+        --><%= @topic.description %><!--
+      --></div>
+        <% if false %>
+            <%= simple_form_for(@topic,
+                                html: {class: 'form-inline'}) do |f| %>
+                <%= f.input :name, label: 'Title', input_html: {class: 'span12'} %>
+
+                <div class="control-group">
+                  <label class="control-label"></label>
+
+                  <div class="controls">
+                    <%= f.text_area :description, class: 'span12 m-wrap wmd-input', id: 'my_wmd', rows: '6' %>
+                    <!--<textarea class="span12 m-wrap wmd-input" id='my_wmd' rows="6"></textarea>-->
                   </div>
+                </div>
 
-                  <div class="form-actions">
-                    <%= button_tag(type: 'submit', class: "btn blue") do %>
-                        <i class="icon-ok"></i> Create</button>
-                    <% end %>
+                <div class="form-actions">
+                  <%= button_tag(type: 'submit', class: "btn blue") do %>
+                      <i class="icon-ok"></i> Create</button>
+                  <% end %>
 
-                    <a href='<%= url_for :back %>' class='btn'>
-                      Cancel
-                    </a>
-
-
-                    <!--<button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>-->
-                    <!--<button type="button" class="btn">Cancel</button>-->
-                  </div>
-
-              <% end %>
-          <% end %>
-          <!-- END FORM-->
-        </div>
-
-        <div class="tab-pane" id="portlet_tab2">
-          Help soon
-        </div>
+                  <a href='<%= url_for :back %>' class='btn'>
+                    Cancel
+                  </a>
 
 
+                  <!--<button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>-->
+                  <!--<button type="button" class="btn">Cancel</button>-->
+                </div>
+
+            <% end %>
+        <% end %>
+        <!-- END FORM-->
       </div>
     </div>
   </div>
 </div>
 
-<%= render partial: 'links/links', locals: {links: Link.all} %>
-<%= render partial: 'links/form_with_wrapper', locals: {link: Link.new} %>
+
+<!--<div class="portlet box blue tabbable">-->
+<!--<div class="portlet-title">-->
+<!--<h4>-->
+<!--<i class="icon-reorder"></i>-->
+<!--<span class="hidden-480"><%= @topic.name %></span>-->
+<!--&nbsp;-->
+<!--</h4>-->
+<!--</div>-->
+<!--<div class="portlet-body form">-->
+<!--<div class="tabbable portlet-tabs">-->
+<!--<ul class="nav nav-tabs">-->
+<!--<li><a href="#portlet_tab3" data-toggle="tab">Edit</a></li>-->
+<!--<li><a href="#portlet_tab2" data-toggle="tab">Help</a></li>-->
+<!--<li class="active"><a href="#portlet_tab1" data-toggle="tab"><%= @topic.name %></a></li>-->
+<!--</ul>-->
+<!--<div class="tab-content">-->
+<!---->
+
+<!--<div class="tab-pane" id="portlet_tab2">-->
+<!--Help soon-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<h2 style="float: left;line-height: 24px;padding: 0;margin: 0 0 5px 0;font-size: 22px">
+  <%= @topic.links.count %> links
+</h2>
+
+<div class="tabbable tabbable-custom tabbable-full-width">
+  <ul class="nav nav-tabs" style="float: right">
+    <li class="active"><a href="#tab_1_1" data-toggle="tab">Votes</a></li>
+    <li><a href="#tab_1_2" data-toggle="tab">Oldest</a></li>
+    <li><a href="#tab_1_3" data-toggle="tab">Active</a></li>
+  </ul>
+  <div style="clear:both"></div>
+  <div class="tab-content">
+    <% if @topic.links.empty? %>
+        <p class="alert alert-info">This topic doesn't have any links yet</p>
+    <% end %>
+    <%= render partial: 'links/links', locals: {links: @topic.links} %>
+    <%= render partial: 'links/form_with_wrapper' %>
+  </div>
+</div>

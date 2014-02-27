@@ -5,6 +5,10 @@ class Topic < ActiveRecord::Base
   has_many :votes, as: :votable
   belongs_to :user
 
+  include Votable
+
+  validates :name, presence: {message: 'Topic title cannot be blank'}
+
   def to_param
     "#{id}-#{name.parameterize}"
   end

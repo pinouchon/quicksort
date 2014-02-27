@@ -1,16 +1,16 @@
 .link {
-    margin-top: 10px;
+    margin-top: 9px;
 }
 
 .link.selected {
     width: calc(100% -20px);
     margin-top: 0px;
     background-color: rgb(219, 238, 255);
-    padding: 10px;
+    padding: 10px 0px 10px 0px;
 }
 
 hr.nomargin {
-    margin: 0;
+    margin: 2px 0 0 0;
 }
 
 a:visited {
@@ -23,4 +23,8 @@ a:visited {
 
 .edit-links a i {
     text-decoration: none;
+}
+
+.header .brand {
+    margin-top: 0px;
 }

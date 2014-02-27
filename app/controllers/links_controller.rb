@@ -38,6 +38,11 @@ class LinksController < ApplicationController
     @link = Link.new(params[:link])
     @link.user_id = current_user.id
 
+    @topic = Topic.find(params['link']['topic_id'].to_i)
+    if (!@topic)
+      @link.errors.add('Cannot find related topic')
+    end
+
     if @link.save
       #flash[:notice] = 'Link was successfully created.'
     end

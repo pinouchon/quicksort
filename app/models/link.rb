@@ -5,6 +5,8 @@ class Link < ActiveRecord::Base
   belongs_to :user
   has_many :votes, as: :votable
 
+  include Votable
+
   validates_presence_of :name
   validates_presence_of :href
 
@@ -12,17 +14,4 @@ class Link < ActiveRecord::Base
     href.start_with?('http://') ? href : 'http://' + href
   end
 
-  def user_vote(user)
-    return nil if !user
-    votes.where('user_id = ?', user.id).first
-  end
-
-  def total_votes
-    votes.map(&:value).reduce(:+) || 0
-  end
-
-  def total_votes_without(user_id = nil)
-    return total_votes if !user_id
-    votes.where('user_id != ?', user_id).map(&:value).reduce(:+) || 0
-  end
 end

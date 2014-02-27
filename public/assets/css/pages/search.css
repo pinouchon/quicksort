@@ -16,7 +16,7 @@ Search Page
   margin:0;
   padding:0;
   background:none;
-  overflow:hidden;
+  /*overflow:hidden;*/
   position:relative;
 }
 

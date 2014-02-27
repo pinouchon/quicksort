@@ -35,3 +35,7 @@ a.brand:hover .brand2 {
     /*margin-top: 20px;*/
     /*margin-bottom: 0px;*/
 /*}*/
+
+code, pre {
+    border-radius: 0px;
+}
