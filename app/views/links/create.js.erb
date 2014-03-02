@@ -1,7 +1,8 @@
 <% if @link.valid? %>
 //flash('notice', 'Link');
-$newLink = $('<%= j render partial: 'links/link', locals: {link: @link} %>');
+var $newLink = $('<%= j render partial: 'links/link', locals: {link: @link} %>');
 $('#links').append($newLink.fadeIn());
+$('#links').append('<hr class="nomargin"/>');
 $('.link').removeClass('selected');
 $('#link-' + <%= @link.id %>).addClass('selected');
 $('body').animate({

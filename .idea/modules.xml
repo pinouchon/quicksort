@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/quicksort.iml" filepath="$PROJECT_DIR$/.idea/quicksort.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../sharewizz/.idea/sharewizz.iml" filepath="$PROJECT_DIR$/../sharewizz/.idea/sharewizz.iml" />
     </modules>
   </component>
 </project>

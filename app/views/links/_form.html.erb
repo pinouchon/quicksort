@@ -1,8 +1,11 @@
-<%= simple_form_for(@link || Link.new,
-                    html: {class: 'form-inline ajaxForm'},
-                    remote: true) do |f| %>
+<% link = @link || Link.new %>
 
-    <%= f.hidden_field :topic_id, value: @topic.id %>
+<%= simple_form_for(link,
+                    html: {class: 'form-inline link-form spin-on-submit'},
+                    remote: true
+    ) do |f| %>
+
+    <%= f.hidden_field :topic_id, value: link.new_record? ? @topic.id : link.topic_id %>
 
     <div class="row-fluid">
       <div class="span6 ">
@@ -37,15 +40,15 @@
 
       <div class="controls">
         <%= f.text_area :description, placeholder: 'Short explanation of what the content is about',
-                        class: 'span12 m-wrap wmd-input', id: 'my_wmd', rows: '4' %>
+                        class: 'span12 m-wrap wmd-input my_wmd', rows: '4' %>
       </div>
     </div>
     <div class="form-actions">
       <%= button_tag(type: 'submit', class: "btn blue") do %>
-          <i class="icon-ok"></i> Create
+          <i class="icon-ok"></i> <%= link.new_record? ? 'Create' : 'Update' %>
       <% end %>
 
-      <a href='<%= url_for :back %>' class='btn'>
+      <a href="<%= url_for :back %>" class="btn cancel">
         Cancel
       </a>
     </div>

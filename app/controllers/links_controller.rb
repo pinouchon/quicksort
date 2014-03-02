@@ -66,9 +66,11 @@ class LinksController < ApplicationController
       if @link.update_attributes(params[:link])
         format.html { redirect_to @link, notice: 'Link was successfully updated.' }
         format.json { head :no_content }
+        format.js { }
       else
         format.html { render action: "edit" }
         format.json { render json: @link.errors, status: :unprocessable_entity }
+        format.js { }
       end
     end
   end
@@ -80,6 +82,13 @@ class LinksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to links_url }
       format.json { head :no_content }
+    end
+  end
+
+  def form
+    @link = Link.find(params[:id])
+    respond_to do |format|
+      format.html { render layout: false }
     end
   end
 end

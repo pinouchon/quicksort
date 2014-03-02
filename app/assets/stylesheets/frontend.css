@@ -1,11 +1,13 @@
 .link {
     margin-top: 9px;
+    /*padding-left: 8px;*/
 }
 
 .link.selected {
     width: calc(100% -20px);
     margin-top: 0px;
     background-color: rgb(219, 238, 255);
+    /*padding: 10px 0px 10px 8px;*/
     padding: 10px 0px 10px 0px;
 }
 
@@ -27,4 +29,16 @@ a:visited {
 
 .header .brand {
     margin-top: 0px;
+}
+
+.link-form-container {
+    display: none;
+}
+
+#links {
+    margin: 0 0 0 10px;
+}
+
+.topic-container {
+    margin: 5px 0 0 10px;
 }

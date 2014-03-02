@@ -1,9 +1,3 @@
-<script type="text/javascript">
-    $(function () {
-        $("#my_wmd").wmd();
-    });
-</script>
-
 <div class="portlet box blue tabbable">
   <div class="portlet-title">
     <h4>
@@ -28,7 +22,7 @@
               <div class="control-group">
                 <!--<label class="control-label"></label>-->
                 <div class="controls">
-                  <%= f.text_area :description, class:'span12 m-wrap wmd-input', id: 'my_wmd', rows: '6' %>
+                  <%= f.text_area :description, class:'span12 m-wrap wmd-input my_wmd', rows: '6' %>
                   <!--<textarea class="span12 m-wrap wmd-input" id='my_wmd' rows="6"></textarea>-->
                 </div>
               </div>

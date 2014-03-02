@@ -15,6 +15,8 @@
   <%= render partial: 'layouts/stylesheets_includes' %>
   <!-- BEGIN PAGE LEVEL STYLES -->
   <link href="/assets/css/pages/error.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/css/pages/search.css" rel="stylesheet" type="text/css"/>
+
   <!-- END PAGE LEVEL STYLES -->
   <link rel="shortcut icon" href="favicon.ico"/>
 
@@ -92,5 +94,16 @@
 
 <%= render 'layouts/footer' %>
 <%= render 'layouts/javascripts_includes' %>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var controller = app.<%= params[:controller].gsub('/', '_') %>;
+        // bracket notation for ie (because .new is an error)
+        var action = app.<%= params[:controller].gsub('/', '_') %>['<%= params[:action] %>'];
+
+        if (app != undefined) app.init();
+        if (controller != undefined) controller.init();
+        if (action != undefined) action.init();
+    });
+</script>
 </body>
 </html>

@@ -191,7 +191,6 @@
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v0.3.37, rbenv: 2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uglifier (v2.2.1, rbenv: 2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.3, rbenv: 2.0.0-p247) [gem]" level="application" />
-    <orderEntry type="module" module-name="sharewizz" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

@@ -1,9 +1,8 @@
-<link href="/assets/css/pages/search.css" rel="stylesheet" type="text/css"/>
-
 <div id="links">
 
   <% links.each do |l| %>
       <%= render partial: 'links/link', locals: {link: l} %>
+      <hr class='nomargin'>
   <% end %>
 </div>
 

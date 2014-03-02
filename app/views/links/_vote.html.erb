@@ -94,13 +94,15 @@
 
         $(function () {
             $('.vote-up, .vote-down').live('click', function () {
-                if (!app.user_signed_in()) {
-                    app.flash('error', 'You need an <%= link_to('account', new_user_registration_path) %> to be able to vote.')
-                    return;
-                }
-
                 var $vote_partial = $(this).closest('.vote-partial');
                 var $link_partial = $(this).closest('.link');
+
+                if (!app.user_signed_in()) {
+                    app.flash('error',
+                            'You need an <%= link_to('account', new_user_registration_path) %> to be able to vote.',
+                            $link_partial);
+                    return;
+                }
 
                 var sign = $(this).hasClass('vote-up') ? 1 : -1;
                 var factor = $(this).hasClass('vote1') ? 1 : 2;
