@@ -56,9 +56,11 @@ class TopicsController < ApplicationController
       if @topic.update_attributes(params[:topic])
         format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
         format.json { head :no_content }
+        format.js { }
       else
         format.html { render action: "edit" }
         format.json { render json: @topic.errors, status: :unprocessable_entity }
+        format.js { }
       end
     end
   end
@@ -70,6 +72,13 @@ class TopicsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to topics_url }
       format.json { head :no_content }
+    end
+  end
+
+  def form
+    @topic = Topic.find(params[:id])
+    respond_to do |format|
+      format.html { render layout: false }
     end
   end
 end

@@ -1,0 +1,9 @@
+var $topic = $('#topic-<%= @topic.id%>');
+<% if @topic.valid? %>
+$topic.replaceWith('<%= j render partial: 'topic', locals: {topic: @topic} %>');
+$('h1.topic-title').text('<%= @topic.name %>');
+app.markdown('#topic-<%= @topic.id%> .markdown');
+<% else %>
+$topic.find('.votable-form-container').html('<%= j render partial: 'form' %>');
+$topic.find('.my_wmd').wmd();
+<% end %>

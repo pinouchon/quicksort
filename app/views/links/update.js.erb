@@ -3,6 +3,6 @@ var $link = $('#link-<%= @link.id%>');
 $link.replaceWith('<%= j render partial: 'link', locals: {link: @link} %>');
 app.markdown('#link-<%= @link.id%> .markdown');
 <% else %>
-$link.find('.link-form-container').html('<%= j render partial: 'form' %>');
+$link.find('.votable-form-container').html('<%= j render partial: 'form' %>');
 $link.find('.my_wmd').wmd();
 <% end %>

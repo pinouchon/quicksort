@@ -23,56 +23,11 @@
 </style>
 
 <br/>
-<h1 class="page-title" style="float: left; line-height: 34px"><%= @topic.name %></h1>
+<h1 class="page-title topic-title" style="line-height: 34px"><%= @topic.name %></h1>
 
 <div class="tabbable tabbable-custom tabbable-full-width">
   <div style="clear:both"></div>
-  <div class="tab-content topic votable"
-       data-id='<%= @topic.id %>' data-type='<%= @topic.class.name %>'>
-    <div class="tab-pane active topic-container" id="portlet_tab1">
-
-      <%= render partial: 'links/vote', locals: {votable: @topic} %>
-      <div style="overflow: hidden">
-        <!-- BEGIN FORM-->
-        <div class='markdown' class='span12 wmd-preview'><!--
-        --><%= @topic.description %><!--
-      --></div>
-        <%= render partial: 'shared/userbox', locals: {user: @topic.user, created_at: @topic.created_at, highlighted: true} %>
-        <%= render partial: 'shared/action_links', locals: {votable: @topic} %>
-        <% if false %>
-            <%= simple_form_for(@topic,
-                                html: {class: 'form-inline'}) do |f| %>
-                <%= f.input :name, label: 'Title', input_html: {class: 'span12'} %>
-
-                <div class="control-group">
-                  <label class="control-label"></label>
-
-                  <div class="controls">
-                    <%= f.text_area :description, class: 'span12 m-wrap wmd-input', id: 'my_wmd', rows: '6' %>
-                    <!--<textarea class="span12 m-wrap wmd-input" id='my_wmd' rows="6"></textarea>-->
-                  </div>
-                </div>
-
-                <div class="form-actions">
-                  <%= button_tag(type: 'submit', class: "btn blue") do %>
-                      <i class="icon-ok"></i> Create</button>
-                  <% end %>
-
-                  <a href='<%= url_for :back %>' class='btn'>
-                    Cancel
-                  </a>
-
-
-                  <!--<button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>-->
-                  <!--<button type="button" class="btn">Cancel</button>-->
-                </div>
-
-            <% end %>
-        <% end %>
-        <!-- END FORM-->
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'topics/topic', locals: {topic: @topic} %>
 </div>
 
 <h2 style="float: left;line-height: 24px;padding: 0;margin: 0 0 5px 0;font-size: 22px">

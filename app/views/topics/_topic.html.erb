@@ -1,0 +1,17 @@
+<div id="topic-<%= topic.id %>" class="tab-content topic votable"
+     data-id='<%= topic.id %>' data-type='<%= topic.class.name %>'>
+  <div class="tab-pane active topic-container" id="portlet_tab1">
+
+    <%= render partial: 'links/vote', locals: {votable: topic} %>
+    <div style="overflow: hidden">
+      <div class="votable-content">
+        <div class='markdown' class='span12 wmd-preview'><!--
+          --><%= topic.description %><!--
+          --></div>
+        <%= render partial: 'shared/userbox', locals: {user: topic.user, created_at: topic.created_at, highlighted: true} %>
+        <%= render partial: 'shared/action_links', locals: {votable: topic} %>
+      </div>
+      <div class="votable-form-container" data-url="<%= form_topic_path(@topic) %>" style="overflow: hidden"></div>
+    </div>
+  </div>
+</div>

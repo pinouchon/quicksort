@@ -2,4 +2,34 @@
   New topic
   <small>submit a new topic</small>
 </h3>
-<%= render partial: 'form' %>
+
+<div class="portlet box blue tabbable">
+  <div class="portlet-title">
+    <h4>
+      <i class="icon-reorder"></i>
+      <span class="hidden-480">New topic</span>
+      &nbsp;
+    </h4>
+  </div>
+  <div class="portlet-body form">
+    <div class="tabbable portlet-tabs">
+      <ul class="nav nav-tabs">
+        <li><a href="#portlet_tab2" data-toggle="tab">Help</a></li>
+        <li class="active"><a href="#portlet_tab1" data-toggle="tab">New topic</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="portlet_tab1">
+
+          <%= render partial: 'form' %>
+          <!-- END FORM-->
+        </div>
+
+        <div class="tab-pane" id="portlet_tab2">
+          Help soon
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

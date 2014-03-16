@@ -6,35 +6,37 @@ app.topics.show = {
   },
 
   initEdit: function () {
-    $('.link .edit').live('click', function () {
-      var $link = $(this).closest('.link');
-      var $linkContent = $link.find('.link-content');
-      var $linkForm = $link.find('.link-form-container');
+    $('.votable .edit').live('click', function (e) {
+      var $votable = $(this).closest('.votable');
+      var $votableContent = $votable.find('.votable-content');
+      var $votableForm = $votable.find('.votable-form-container');
       var $spinner = $(this).find('.icon-spin');
 
       $spinner.show();
       $.ajax({
-        url: $linkForm.data('url'),
+        url: $votableForm.data('url'),
         success: function (result) {
-          $link.removeClass('selected');
+          $votable.removeClass('selected');
 
-          $linkContent.hide();
-          $linkForm.html(result).show();
+          $votableContent.hide();
+          $votableForm.html(result).show();
           $spinner.hide();
-          $linkForm.find(".my_wmd").wmd();
+          $votableForm.find(".my_wmd").wmd();
         }
       });
+      e.preventDefault();
+      return false;
     });
   },
 
   initCancelEdit: function () {
-    $('.link .cancel').live('click', function (e) {
-      var $link = $(this).closest('.link');
-      var $linkContent = $link.find('.link-content');
-      var $linkForm = $link.find('.link-form-container');
+    $('.votable .cancel').live('click', function (e) {
+      var $votable = $(this).closest('.votable');
+      var $votableContent = $votable.find('.votable-content');
+      var $votableForm = $votable.find('.votable-form-container');
 
-      $linkContent.show();
-      $linkForm.hide();
+      $votableContent.show();
+      $votableForm.hide();
       e.preventDefault();
       return false;
     });

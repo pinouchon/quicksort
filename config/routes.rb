@@ -7,8 +7,6 @@ Quicksort::Application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  get 'topics/:id/:slug', to: 'topics#show'
-
   resources :users do
 
   end
@@ -19,11 +17,14 @@ Quicksort::Application.routes.draw do
     end
   end
   resources :topics do
+    member do
+      get :form
+    end
     collection do
     end
-    member do
-    end
   end
+  get 'topics/:id/:slug', to: 'topics#show'
+
   resources :votes do
     collection do
       post :vote

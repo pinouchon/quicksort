@@ -4,7 +4,7 @@
   <div class="booking-blocks" style="overflow: visible">
     <%= render partial: 'links/vote', locals: {votable: link} %>
     <!--<img src="/assets/img/gallery/image4.jpg" alt="">-->
-    <div class="link-content" style="overflow:hidden;">
+    <div class="votable-content" style="overflow:hidden;">
       <h2 style="font-weight: 500">
         <a rel='nofollow' href="<%= link.href_with_protocol %>" class="link-link"><%= link.name %></a>
       </h2>
@@ -22,6 +22,6 @@
 
       <%= render partial: 'shared/action_links', locals: {votable: link} %>
     </div>
-    <div class="link-form-container" data-url="<%= form_link_path(link) %>" style="overflow: hidden"></div>
+    <div class="votable-form-container" data-url="<%= form_link_path(link) %>" style="overflow: hidden"></div>
   </div>
 </div>
