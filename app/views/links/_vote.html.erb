@@ -95,19 +95,19 @@
         $(function () {
             $('.vote-up, .vote-down').live('click', function () {
                 var $vote_partial = $(this).closest('.vote-partial');
-                var $link_partial = $(this).closest('.link');
+                var $votable_partial = $(this).closest('.votable');
 
                 if (!app.user_signed_in()) {
                     app.flash('error',
                             'You need an <%= link_to('account', new_user_registration_path) %> to be able to vote.',
-                            $link_partial);
+                            $votable_partial);
                     return;
                 }
 
                 var sign = $(this).hasClass('vote-up') ? 1 : -1;
                 var factor = $(this).hasClass('vote1') ? 1 : 2;
-                var votable_id = $link_partial.data('id');
-                var votable_type = $link_partial.data('type');
+                var votable_id = $votable_partial.data('id');
+                var votable_type = $votable_partial.data('type');
                 var value = sign * factor;
 
                 if (value == $vote_partial.data('user-vote')) value = 0;
@@ -138,7 +138,7 @@
                         } else {
                             app.flash('error', data.error_message);
                             $('#flash').hide();
-                            $('#flash > div').prependTo($link_partial).hide().fadeIn(500);
+                            $('#flash > div').prependTo($votable_partial).hide().fadeIn(500);
                         }
 
                         refresh_colors($vote_partial, data.value);

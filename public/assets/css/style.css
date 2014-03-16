@@ -4248,7 +4248,7 @@ Horezantal Menu(new in v1.2)
 
 .header .hor-menu ul.nav li.active .selected {
   left: 50%;
-  bottom:0;
+  bottom:1px;
   position: absolute;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;

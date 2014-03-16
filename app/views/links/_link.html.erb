@@ -1,6 +1,6 @@
 <% link ||= Link.new %>
 
-<div class="row-fluid link" id="link-<%= link.id %>" data-id='<%= link.id %>' data-type='<%= link.class.name %>'>
+<div class="row-fluid link votable" id="link-<%= link.id %>" data-id='<%= link.id %>' data-type='<%= link.class.name %>'>
   <div class="booking-blocks" style="overflow: visible">
     <%= render partial: 'links/vote', locals: {votable: link} %>
     <!--<img src="/assets/img/gallery/image4.jpg" alt="">-->
@@ -18,14 +18,22 @@
       <p class='markdown link-description'><%= link.description %>
         <!--<a href="#">read more</a>-->
       </p>
+      <%= render partial: 'shared/userbox', locals: {user: link.user, created_at: link.created_at} %>
 
-      <div style="color: #777;" class='edit-links'>
-        <a href="javascript:;" class="edit">
-          <i class="icon-pencil" style="color: #78ccf8"></i> Edit
-          <i class="icon-refresh icon-spin" style="display:none"></i>
-        </a> |
-        <a href="javascript:;"><i class="icon-map-marker" style="color: #78ccf8"></i> Another action</a> |
-        <a href="javascript:;"><i class="icon-map-marker" style="color: #78ccf8"></i> End</a>
+      <div class='action-links'>
+        <a href="javascript:;"><i class="icon-comment-alt"></i> Commment</a> |
+        <% if (user_signed_in? && (link.user == current_user || current_user.can_edit?(link))) || moderator %>
+            <a href="javascript:;" class="edit">
+              <i class="icon-pencil"></i> Edit
+              <i class="icon-refresh icon-spin" style="display:none"></i>
+            </a> |
+        <% end %>
+        <% if (user_signed_in? && link.user == current_user) || moderator %>
+            <%= link_to link_path(link), method: :delete, confirm: 'Delete this link ?' do %>
+                <i class="icon-remove"></i> Remove
+            <% end %> |
+        <% end %>
+        <a href="javascript:;"><i class="icon-share-alt"></i> Share</a>
       </div>
     </div>
     <div class="link-form-container" data-url="<%= form_link_path(link) %>" style="overflow: hidden"></div>

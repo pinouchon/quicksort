@@ -9,6 +9,10 @@ Quicksort::Application.routes.draw do
 
   get 'topics/:id/:slug', to: 'topics#show'
 
+  resources :users do
+
+  end
+
   resources :links do
     member do
       get :form

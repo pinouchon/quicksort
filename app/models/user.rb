@@ -37,4 +37,12 @@ class User < ActiveRecord::Base
     self.reputation = total
     self.save
   end
+
+  def moderator
+    true
+  end
+
+  def can_edit?(link)
+    false
+  end
 end

@@ -1,0 +1,15 @@
+<div class="userbox">
+  <div>
+    posted:
+    <% if Time.now - created_at < 1.day %>
+        <%= time_ago_in_words(created_at, include_seconds: true) %> ago
+    <% else %>
+        <%= created_at.strftime('%d %b %Y at %H:%M') %>
+    <% end %>
+  </div>
+  <div class="usericon">
+    <i class="icon-user"></i>
+  </div>
+  <div class="user-name"><%= link_to user.name.capitalize, user_path(user.id) %></div>
+  <div class="user-reputation"><%= user.reputation %></div>
+</div>

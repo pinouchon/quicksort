@@ -3,7 +3,7 @@ class Link < ActiveRecord::Base
 
   belongs_to :topic
   belongs_to :user
-  has_many :votes, as: :votable
+  has_many :votes, as: :votable, dependent: :destroy
 
   include Votable
 

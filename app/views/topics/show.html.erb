@@ -26,13 +26,9 @@
 <h1 class="page-title" style="float: left; line-height: 34px"><%= @topic.name %></h1>
 
 <div class="tabbable tabbable-custom tabbable-full-width">
-  <!--<ul class="nav nav-tabs" style="float: right">-->
-  <!--<li class="active"><a href="#tab_1_1" data-toggle="tab">Overview</a></li>-->
-  <!--<li><a href="#tab_1_2" data-toggle="tab">Profile Info</a></li>-->
-  <!--<li><a href="#tab_1_3" data-toggle="tab">Account</a></li>-->
-  <!--</ul>-->
   <div style="clear:both"></div>
-  <div class="tab-content">
+  <div class="tab-content topic votable"
+       data-id='<%= @topic.id %>' data-type='<%= @topic.class.name %>'>
     <div class="tab-pane active topic-container" id="portlet_tab1">
 
       <%= render partial: 'links/vote', locals: {votable: @topic} %>
@@ -76,35 +72,6 @@
     </div>
   </div>
 </div>
-
-
-<!--<div class="portlet box blue tabbable">-->
-<!--<div class="portlet-title">-->
-<!--<h4>-->
-<!--<i class="icon-reorder"></i>-->
-<!--<span class="hidden-480"><%= @topic.name %></span>-->
-<!--&nbsp;-->
-<!--</h4>-->
-<!--</div>-->
-<!--<div class="portlet-body form">-->
-<!--<div class="tabbable portlet-tabs">-->
-<!--<ul class="nav nav-tabs">-->
-<!--<li><a href="#portlet_tab3" data-toggle="tab">Edit</a></li>-->
-<!--<li><a href="#portlet_tab2" data-toggle="tab">Help</a></li>-->
-<!--<li class="active"><a href="#portlet_tab1" data-toggle="tab"><%= @topic.name %></a></li>-->
-<!--</ul>-->
-<!--<div class="tab-content">-->
-<!---->
-
-<!--<div class="tab-pane" id="portlet_tab2">-->
-<!--Help soon-->
-<!--</div>-->
-
-
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
 
 <h2 style="float: left;line-height: 24px;padding: 0;margin: 0 0 5px 0;font-size: 22px">
   <%= @topic.links.count %> links

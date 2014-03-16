@@ -10,7 +10,7 @@
     </facet>
   </component>
   <component name="ModuleRunConfigurationManager">
-    <configuration default="false" name="test" type="RakeRunConfigurationType" factoryName="Rake">
+    <configuration default="false" name="az" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="quicksort" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
@@ -191,6 +191,7 @@
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v0.3.37, rbenv: 2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uglifier (v2.2.1, rbenv: 2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.3, rbenv: 2.0.0-p247) [gem]" level="application" />
+    <orderEntry type="module" module-name="az" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />

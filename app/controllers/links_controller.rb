@@ -77,10 +77,11 @@ class LinksController < ApplicationController
 
   def destroy
     @link = Link.find(params[:id])
+    topic = @link.topic
     @link.destroy
 
     respond_to do |format|
-      format.html { redirect_to links_url }
+      format.html { redirect_to topic_path topic }
       format.json { head :no_content }
     end
   end
