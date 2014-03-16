@@ -37,6 +37,8 @@
         <div class='markdown' class='span12 wmd-preview'><!--
         --><%= @topic.description %><!--
       --></div>
+        <%= render partial: 'shared/userbox', locals: {user: @topic.user, created_at: @topic.created_at, highlighted: true} %>
+        <%= render partial: 'shared/action_links', locals: {votable: @topic} %>
         <% if false %>
             <%= simple_form_for(@topic,
                                 html: {class: 'form-inline'}) do |f| %>

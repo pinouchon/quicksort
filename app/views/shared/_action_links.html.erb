@@ -1,0 +1,22 @@
+<div class='action-links'>
+  <a href="javascript:;"><i class="icon-comment-alt"></i> Commment</a> |
+  <% if (user_signed_in? && (votable.user == current_user || current_user.can_edit?(votable))) || moderator %>
+      <a href="javascript:;" class="edit">
+        <i class="icon-pencil"></i> Edit
+        <i class="icon-refresh icon-spin" style="display:none"></i>
+      </a> |
+  <% end %>
+  <% if (user_signed_in? && votable.user == current_user) || moderator %>
+      <% if votable.class.name == 'Link' %>
+          <%= link_to link_path(votable), method: :delete, confirm: 'Delete this link ?' do %>
+              <i class="icon-remove"></i> Remove
+          <% end %>
+      <% elsif votable.class.name == 'Topic' %>
+          <%= link_to topic_path(votable), method: :delete, confirm: 'Delete this topic ?' do %>
+              <i class="icon-remove"></i> Remove
+          <% end %>
+      <% end %>
+      |
+  <% end %>
+  <a href="javascript:;"><i class="icon-share-alt"></i> Share</a>
+</div>

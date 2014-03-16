@@ -4,9 +4,9 @@
 }
 
 .link.selected {
-  width: calc(100% - 20px);
+//  width: calc(100% - 20px);
   margin-top: 0px;
-  background-color: rgb(219, 238, 255);
+  background-color: #E8F4FF;
   /*padding: 10px 0px 10px 8px;*/
   padding: 10px 0px 10px 0px;
 }
@@ -21,12 +21,14 @@ a:visited {
 
 .action-links {
   color: #777;
-}
-
-.action-links a i {
-  text-decoration: none;
-  color: #77c5f1;
-  font-size: 11px
+  a:visited {
+    color: #005580;
+  }
+  a i {
+    text-decoration: none;
+    color: #77c5f1;
+    font-size: 11px
+  }
 }
 
 .header .brand {
@@ -46,11 +48,13 @@ a:visited {
 }
 
 .userbox {
+  &.highlighted {
+    background-color: #f0f6fa;
+    border-left: solid 2px #c4d5df;
+  }
   width: 170px;
   height: 50px;
   float: right;
-  background-color: #f0f6fa;
-  border-left: solid 2px #c4d5df;
   padding: 2px 2px 2px 4px;
   font-size: 12px;
   .usericon {

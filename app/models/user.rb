@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
     true
   end
 
-  def can_edit?(link)
+  def can_edit?(votable)
     false
   end
 end

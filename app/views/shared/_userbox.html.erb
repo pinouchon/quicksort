@@ -1,8 +1,10 @@
-<div class="userbox">
+<%= highlighted ||= false %>
+
+<div class="userbox <%= 'highlighted' if highlighted %>">
   <div>
     posted:
     <% if Time.now - created_at < 1.day %>
-        <%= time_ago_in_words(created_at, include_seconds: true) %> ago
+        <%= time_ago_in_words(created_at) %> ago
     <% else %>
         <%= created_at.strftime('%d %b %Y at %H:%M') %>
     <% end %>
