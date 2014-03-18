@@ -1,0 +1,14 @@
+<div class="userbox_mini">
+  <div class="created_at">
+    <%= time_ago(created_at) %>
+  </div>
+  <div class="usericon">
+    <i class="icon-user"></i>
+  </div>
+  <div class="user-name">
+    <%= link_to user.name.capitalize, user_path(user.id) %>
+  </div>
+  <div class="user-reputation">
+    <%= user.reputation %>
+  </div>
+</div>

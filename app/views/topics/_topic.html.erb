@@ -11,7 +11,7 @@
         <%= render partial: 'shared/userbox', locals: {user: topic.user, created_at: topic.created_at, highlighted: true} %>
         <%= render partial: 'shared/action_links', locals: {votable: topic} %>
       </div>
-      <div class="votable-form-container" data-url="<%= form_topic_path(@topic) %>" style="overflow: hidden"></div>
+      <div class="votable-form-container" data-url="<%= form_topic_path(topic) %>" style="overflow: hidden"></div>
     </div>
   </div>
 </div>

@@ -75,3 +75,18 @@ a:visited {
   .user-reputation {
   }
 }
+
+.userbox_mini {
+  display: inline-block;
+  &>div {
+    float: left;
+    margin: 0 3px;
+  }
+  .created_at {
+    color: #999;
+  }
+}
+
+blockquote {
+  margin: 0 0 10px;
+}
