@@ -114,16 +114,19 @@ blockquote {
     &:hover {
       background-color: #F9F9F9;
     }
+    .icon-remove-sign {
+      color: #C4C4C4;
+      padding: 3px;
+      &:hover {
+        color: #bd6e66;
+        cursor: pointer;
+        text-decoration: none;
+      }
+    }
   }
   .add-comment {
 
   }
-//  .comment-separator {
-//    margin: 0px 0;
-//    border: 0;
-//    border-top: 1px dotted #E0DFDF;
-//    border-bottom: 1px dotted #FEFEFE;
-//  }
 }
 
 .nowrap {
