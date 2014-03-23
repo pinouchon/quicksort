@@ -3,25 +3,20 @@
 <div class="row-fluid link votable" id="link-<%= link.id %>" data-id='<%= link.id %>' data-type='<%= link.class.name %>'>
   <div class="booking-blocks" style="overflow: visible">
     <%= render partial: 'links/vote', locals: {votable: link} %>
-    <!--<img src="/assets/img/gallery/image4.jpg" alt="">-->
-    <div class="votable-content" style="overflow:hidden;">
-      <h2 style="font-weight: 500">
-        <a rel='nofollow' href="<%= link.href_with_protocol %>" class="link-link"><%= link.name %></a>
-      </h2>
-      <!--<ul class="unstyled inline">-->
-      <!--<li><i class="icon-star"></i></li>-->
-      <!--<li><i class="icon-star"></i></li>-->
-      <!--<li><i class="icon-star"></i></li>-->
-      <!--<li><i class="icon-star"></i></li>-->
-      <!--<li><i class="icon-star-empty"></i></li>-->
-      <!--</ul>-->
-      <p class='markdown link-description'><%= link.description %>
-        <!--<a href="#">read more</a>-->
-      </p>
-      <%= render partial: 'shared/userbox', locals: {user: link.user, created_at: link.created_at} %>
+    <div style="overflow:hidden;">
+      <div class="votable-content">
+        <h2 style="font-weight: 500">
+          <a rel='nofollow' href="<%= link.href_with_protocol %>" class="link-link"><%= link.name %></a>
+        </h2>
 
-      <%= render partial: 'shared/action_links', locals: {votable: link} %>
+        <p class='markdown link-description'><%= link.description %>
+        </p>
+        <%= render partial: 'shared/userbox', locals: {user: link.user, created_at: link.created_at} %>
+        <%= render partial: 'shared/action_links', locals: {votable: link} %>
+      </div>
+      <div class="votable-form-container" data-url="<%= form_link_path(link) %>" style="overflow: hidden"></div>
+      <div style="clear:both"></div>
+      <%= render partial: 'comments/comments', locals: {post: link} %>
     </div>
-    <div class="votable-form-container" data-url="<%= form_link_path(link) %>" style="overflow: hidden"></div>
   </div>
 </div>

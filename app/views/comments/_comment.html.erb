@@ -1,0 +1,5 @@
+<div class="comment">
+  <%= comment.content %>
+  <%= render partial: 'shared/userbox_inline', locals: {user: comment.user, created_at: comment.created_at} %>
+  <div style="clear:both"></div>
+</div>

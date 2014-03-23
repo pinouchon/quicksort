@@ -4,6 +4,7 @@ class Link < ActiveRecord::Base
   belongs_to :topic
   belongs_to :user
   has_many :votes, as: :votable, dependent: :destroy
+  has_many :comments, as: :post, dependent: :destroy
 
   include Votable
 

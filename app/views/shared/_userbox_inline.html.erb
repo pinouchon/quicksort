@@ -1,0 +1,9 @@
+<span class="userbox-inline">
+  –
+  <span class="user-name nowrap">
+    <%= link_to user.name.capitalize, user_path(user.id) %>
+  </span>
+  <span class="created_at nowrap">
+    <%= time_ago(created_at) %>
+  </span>
+</span>

@@ -4,7 +4,7 @@
 }
 
 .link.selected {
-//  width: calc(100% - 20px);
+  //  width: calc(100% - 20px);
   margin-top: 0px;
   background-color: #E8F4FF;
   /*padding: 10px 0px 10px 8px;*/
@@ -15,7 +15,7 @@ hr.nomargin {
   margin: 2px 0 0 0;
 }
 
-a:visited {
+a.link-link:visited, a.violet:visited {
   color: #609
 }
 
@@ -29,6 +29,9 @@ a:visited {
     color: #77c5f1;
     font-size: 11px
   }
+  //  .icon-comment {
+  //    font-size: 10px;
+  //  }
 }
 
 .header .brand {
@@ -76,9 +79,9 @@ a:visited {
   }
 }
 
-.userbox_mini {
+.userbox-mini {
   display: inline-block;
-  &>div {
+  & > div {
     float: left;
     margin: 0 3px;
   }
@@ -87,6 +90,47 @@ a:visited {
   }
 }
 
+.userbox-inline {
+  .created_at {
+    color: #999;
+  }
+  .user-name {
+
+  }
+}
+
 blockquote {
   margin: 0 0 10px;
+}
+
+.post-comments {
+  margin-top: 10px;
+  .comment, .add-comment-container, .comment-form-container {
+    margin-top: -1px;
+    padding: 6px 6px 6px 22px;
+    border-top: 1px dotted #E0DFDF;
+  }
+  .comment {
+    &:hover {
+      background-color: #F9F9F9;
+    }
+  }
+  .add-comment {
+
+  }
+//  .comment-separator {
+//    margin: 0px 0;
+//    border: 0;
+//    border-top: 1px dotted #E0DFDF;
+//    border-bottom: 1px dotted #FEFEFE;
+//  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.comment-form-container {
+  padding: 6px 6px 6px 22px;
+  display: none;
 }

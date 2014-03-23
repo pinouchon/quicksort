@@ -12,6 +12,10 @@
         <%= render partial: 'shared/action_links', locals: {votable: topic} %>
       </div>
       <div class="votable-form-container" data-url="<%= form_topic_path(topic) %>" style="overflow: hidden"></div>
+      <div style="clear:both"></div>
+      <%= render partial: 'comments/comments', locals: {post: @topic} %>
+
     </div>
+
   </div>
 </div>

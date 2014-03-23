@@ -1,0 +1,32 @@
+<div class="post-comments-container <%= 'hide' if post.comments.count == 0 %>">
+  <div class="post-comments">
+    <% post.comments.each do |c| %>
+        <%= render partial: 'comments/comment', locals: {comment: c} %>
+    <% end %>
+
+    <div class="add-comment-container action-links">
+      <a href="javascript:;" class="comment-link">
+        <!--<i class="icon-comment"></i> -->
+        Add commment
+      </a>
+    </div>
+
+    <div class="comment-form-container">
+      <form class="form-horizontal comment-form" action="<%= comments_path %>">
+        <div class="control-group">
+          <div class="controls row-fluid" style="margin-left: 0">
+            <input name="post_id" type="hidden" value="<%= post.id %>"/>
+            <input name="post_type" type="hidden" value="<%= post.class.name %>"/>
+            <textarea name="content" class="span8 m-wrap" rows="3" placeholder="Enter your comment. At least 15 characters."></textarea>
+            <span class="help-inline" style="margin-top: 0">
+              <button type="submit" class="btn blue submit-comment">
+                <i class="icon-refresh icon-spin" style="display: none"></i> Add comment
+              </button>
+              <a href="#" class="cancel">cancel</a>
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -7,10 +7,12 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   has_merit
-  has_many :votes_cast, primary_key: 'id', foreign_key: 'user_id', class_name: 'Vote'
-  has_many :votes_received, primary_key: 'id', foreign_key: 'author_id', class_name: 'Vote'
+  has_many :votes_received, primary_key: 'id', foreign_key: 'user_id', class_name: 'Vote'
+  has_many :votes_cast, primary_key: 'id', foreign_key: 'target_user_id', class_name: 'Vote'
   has_many :links
   has_many :topics
+  has_many :comments_received, primary_key: 'id', foreign_key: 'user_id', class_name: 'Comment'
+  has_many :comments_written, primary_key: 'id', foreign_key: 'target_user_id', class_name: 'Comment'
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable

@@ -3,12 +3,12 @@ class Vote < ActiveRecord::Base
   belongs_to :votable, polymorphic: true
   belongs_to :user
 
-  belongs_to :author, primary_key: 'author_id', foreign_key: 'id', class_name: 'User'
+  belongs_to :target_user, primary_key: 'target_user_id', foreign_key: 'id', class_name: 'User'
 
-  before_save :set_author_id
+  before_save :set_target_user_id
 
-  def set_author_id
-    self.author_id = self.votable.user_id
+  def set_target_user_id
+    self.target_user_id = self.votable.user_id
   end
 
 end

@@ -3,6 +3,7 @@ class Topic < ActiveRecord::Base
 
   has_many :links, dependent: :destroy
   has_many :votes, as: :votable, dependent: :destroy
+  has_many :comments, as: :post, dependent: :destroy
   belongs_to :user
 
   include Votable

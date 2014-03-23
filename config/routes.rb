@@ -33,6 +33,9 @@ Quicksort::Application.routes.draw do
     end
   end
 
+  resources :comments do
+  end
+
 
   root to: 'topics#index'
 
