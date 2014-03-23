@@ -45,14 +45,14 @@ app.topics.show = {
   },
 
   initComment: function() {
-    $('.comment-link').click(function() {
+    $('.comment-link').live('click', function() {
       var $votable = $(this).closest('.votable');
       $votable.find('.post-comments-container').show();
       $votable.find('.comment-form-container').show();
       $votable.find('.add-comment-container').hide();
     });
 
-    $('.comment-form .cancel').click(function() {
+    $('.comment-form .cancel').live('click', function() {
       var $votable = $(this).closest('.votable');
       $votable.find('.comment-form-container').hide();
       $votable.find('.add-comment-container').show();

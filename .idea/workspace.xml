@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3cbe778-ec74-430a-a2e6-ef8c9512a787" name="Default" comment="vote layout&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/comments/_comment.html.erb" afterPath="$PROJECT_DIR$/app/views/comments/_comment.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../az/tic_tac_toe/az.rb" afterPath="$PROJECT_DIR$/../az/tic_tac_toe/az.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/comments_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/comments_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/frontend.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/frontend.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/topics/topics_show.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/topics/topics_show.js" />
     </list>
     <ignored path="quicksort.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,10 +112,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="frontend.css.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="frontend.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/frontend.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="29" selection-start="1852" selection-end="1852" vertical-scroll-proportion="0.70873785" vertical-offset="1538" max-vertical-offset="2160">
+            <state line="122" column="29" selection-start="1852" selection-end="1852" vertical-scroll-proportion="-5.84" vertical-offset="1538" max-vertical-offset="2160">
               <folding />
             </state>
           </provider>
@@ -132,10 +130,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="topics_show.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="topics_show.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/topics/topics_show.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="38" selection-start="2492" selection-end="2492" vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="1440">
+            <state line="54" column="42" selection-start="1595" selection-end="1595" vertical-scroll-proportion="0.48701298" vertical-offset="585" max-vertical-offset="1440">
               <folding />
             </state>
           </provider>
@@ -205,11 +203,11 @@
         <option value="$PROJECT_DIR$/public/assets/css/style.css" />
         <option value="$PROJECT_DIR$/app/views/topics/_topic.html.erb" />
         <option value="$PROJECT_DIR$/app/views/comments/_comments.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/topics/topics_show.js" />
         <option value="$PROJECT_DIR$/app/views/links/_link.html.erb" />
         <option value="$PROJECT_DIR$/app/views/comments/_comment.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/comments_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/frontend.css.scss" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/topics/topics_show.js" />
       </list>
     </option>
   </component>
@@ -1013,13 +1011,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/topics/topics_show.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="38" selection-start="2492" selection-end="2492" vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="1440">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/links/_links.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="32" selection-start="0" selection-end="151" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="405">
@@ -1094,7 +1085,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/frontend.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="29" selection-start="1852" selection-end="1852" vertical-scroll-proportion="0.70873785" vertical-offset="1538" max-vertical-offset="2250">
+        <state line="122" column="29" selection-start="1852" selection-end="1852" vertical-scroll-proportion="-5.84" vertical-offset="1538" max-vertical-offset="2160">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/topics/topics_show.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="42" selection-start="1595" selection-end="1595" vertical-scroll-proportion="0.48701298" vertical-offset="585" max-vertical-offset="1440">
           <folding />
         </state>
       </provider>
