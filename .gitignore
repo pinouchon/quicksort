@@ -19,3 +19,5 @@
 .idea
 .DS_Store
 *~
+.idea/quicksort.iml
+.idea/workspace.xml

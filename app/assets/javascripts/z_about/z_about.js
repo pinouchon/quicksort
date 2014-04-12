@@ -1,0 +1,4 @@
+app.abouts = {
+  init: function () {
+  }
+};
