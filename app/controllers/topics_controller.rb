@@ -56,11 +56,11 @@ class TopicsController < ApplicationController
       if @topic.update_attributes(params[:topic])
         format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
         format.json { head :no_content }
-        format.js { }
+        format.js {}
       else
         format.html { render action: "edit" }
         format.json { render json: @topic.errors, status: :unprocessable_entity }
-        format.js { }
+        format.js {}
       end
     end
   end

@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def moderator
-    user_signed_in? && current_user.moderator
+  def moderator?
+    user_signed_in? && current_user.moderator?
   end
 
   def time_ago(time)

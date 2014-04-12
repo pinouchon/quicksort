@@ -14,4 +14,12 @@ class Topic < ActiveRecord::Base
     "#{id}-#{name.parameterize}"
   end
 
+  def topic
+    self
+  end
+
+  def to_s
+    name
+  end
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140322185739) do
+ActiveRecord::Schema.define(:version => 20140412191521) do
 
   create_table "badges_sashes", :force => true do |t|
     t.integer  "badge_id"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20140322185739) do
     t.integer  "post_id"
     t.string   "post_type"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "user_id"
     t.integer  "target_user_id"
   end
@@ -92,14 +92,14 @@ ActiveRecord::Schema.define(:version => 20140322185739) do
   end
 
   create_table "users", :force => true do |t|
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
+    t.string   "email",                  :default => "",                    :null => false
+    t.string   "encrypted_password",     :default => "",                    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.integer  "sign_in_count",          :default => 0,                     :null => false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -108,6 +108,8 @@ ActiveRecord::Schema.define(:version => 20140322185739) do
     t.integer  "sash_id"
     t.integer  "level",                  :default => 0
     t.integer  "reputation",             :default => 0
+    t.datetime "checked_reputation_at",  :default => '2010-01-01 00:00:00'
+    t.datetime "checked_replies_at",     :default => '2010-01-01 00:00:00'
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -118,8 +120,8 @@ ActiveRecord::Schema.define(:version => 20140322185739) do
     t.string   "votable_type"
     t.integer  "user_id"
     t.integer  "value"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "target_user_id"
   end
 

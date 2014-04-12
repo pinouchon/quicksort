@@ -137,3 +137,28 @@ blockquote {
   padding: 6px 6px 6px 22px;
   display: none;
 }
+
+.header .nav > li.dropdown .dropdown-toggle .badge {
+  padding: 1px 5px 1px 5px;
+  right: 22px;
+}
+
+.dropdown-menu.extended {
+  width: 300px !important;
+}
+
+#body .unseen {
+  background-color: rgb(237, 248, 255);
+}
+
+#body .unseen:hover {
+  background-color: rgb(217, 230, 238);
+}
+#header_notification_bar {
+  .green {
+    color: green;
+  }
+  .red {
+    color : #d10004;
+  }
+}

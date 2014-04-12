@@ -3,6 +3,7 @@ var app = {
     this.initMarkdownConverter();
     this.initFormSubmitSpinner();
     this.initWmd();
+    this.initCheckNotifications();
   },
 
   flash: function (type, message, prependTo) {
@@ -45,5 +46,18 @@ var app = {
 
   initWmd: function () {
     $(".my_wmd").wmd();
+  },
+
+  initCheckNotifications: function() {
+    $('#header_notification_bar').click(function() {
+      var $button = $(this);
+      $.ajax({
+        type: 'POST',
+        url: $button.data('url'),
+        success: function () {
+          $button.find('.badge').fadeOut();
+        }
+      });
+    });
   }
 };

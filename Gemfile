@@ -35,6 +35,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'paper_trail'
 gem 'merit'
+#gem 'rack-mini-profiler', require: false
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

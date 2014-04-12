@@ -1,0 +1,4 @@
+app.users = {
+  init: function () {
+  }
+};

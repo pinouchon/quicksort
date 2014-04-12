@@ -33,9 +33,9 @@
       <%= render partial: 'layouts/menu' %>
       <ul class="nav pull-right">
         <% if user_signed_in? %>
-            <%= render partial: 'layouts/notification_dropdown' %>
-            <%= render partial: 'layouts/inbox_dropdown' %>
-            <%= render partial: 'layouts/todo_dropdown' %>
+            <%= render partial: 'layouts/reputation_dropdown' %>
+            <%= render partial: 'layouts/replies_dropdown' %>
+            <%#= render partial: 'layouts/todo_dropdown' %>
             <%= render partial: 'layouts/login_dropdown' %>
         <% else %>
             <li>

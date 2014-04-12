@@ -3,6 +3,6 @@
   <%= render partial: 'shared/userbox_inline', locals: {user: comment.user, created_at: comment.created_at} %>
   <%= link_to(comment_path(comment), method: :delete, confirm: 'Really delete this comment ?') do %>
       <i class="icon icon-remove-sign" title="Delete this comment"></i>
-  <% end %>
+  <% end if (comment.user == current_user || moderator?) %>
   <div style="clear:both"></div>
 </div>

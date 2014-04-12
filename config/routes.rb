@@ -8,7 +8,10 @@ Quicksort::Application.routes.draw do
   end
 
   resources :users do
-
+    collection do
+      post :check_reputation
+      post :check_replies
+    end
   end
 
   resources :links do
@@ -35,6 +38,8 @@ Quicksort::Application.routes.draw do
 
   resources :comments do
   end
+
+  resource :about
 
 
   root to: 'topics#index'

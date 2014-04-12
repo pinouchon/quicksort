@@ -1,18 +1,20 @@
-<li class="dropdown" id="header_inbox_bar">
+<li class="dropdown" id="header_inbox_bar" data-url="<%= check_replies_users_path %>">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
     <i class="icon-comments"></i>
-    <span class="badge">5</span>
+    <% if @unseen_replies.count > 0 %>
+        <span class="badge" style="right:29px"><%= @unseen_replies.count %></span>
+    <% end %>
   </a>
   <ul class="dropdown-menu extended inbox">
     <li>
-      <p>You have 12 new messages</p>
+      <p><%= @unseen_replies.count %> new replies</p>
     </li>
     <li>
       <a href="inbox.html?a=view">
-        <span class="photo"><img src="/assets/img/avatar2.jpg" alt=""/></span>
+        <span class="photo"><img src="/assets/img/avatar.png" alt="" style="opacity: 0.6"/></span>
 								<span class="subject">
 								<span class="from">Lisa Wong</span>
-								<span class="time">Just Now</span>
+								<span style="font-style: italic;color:#9f9f9f;float: right">Just Now</span>
 								</span>
 								<span class="message">
 								Vivamus sed auctor nibh congue nibh. auctor nibh

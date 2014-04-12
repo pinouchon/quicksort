@@ -1,56 +1,67 @@
-<li class="dropdown" id="header_notification_bar">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    <i class="icon-sort"></i>
-    <span class="badge">6</span>
-  </a>
-  <ul class="dropdown-menu extended notification">
-    <li>
-      <p>+X reputation</p>
-    </li>
-    <li>
-      <a href="#">
-        <span class="label label-success"><i class="icon-plus"></i></span>
-        New user registered.
-        <span class="time">Just now</span>
+<% if user_signed_in? %>
+    <li class="dropdown" id="header_notification_bar" data-url="<%= check_reputation_users_path %>">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="icon-sort"></i>
+        <% if @unseen_votes.count > 0 %>
+            <span class="badge"><%= @unseen_votes.count %></span>
+        <% end %>
       </a>
+      <ul class="dropdown-menu extended notification">
+        <li>
+          <p><%= '%+-d' % @recent_votes_total %> reputation</p>
+        </li>
+        <% @recent_votes.each do |v| %>
+            <% value_for_user = v.value_for(current_user) %>
+            <li>
+              <a href="<%= topic_path v.votable.topic %>"
+                 class="<%= 'unseen' if v.updated_at > current_user.checked_reputation_at %>">
+                <span class="<%= value_for_user >= 0 ? 'green' : 'red' %>">
+                  <%= '%+-d' % value_for_user %>
+                </span>
+                <!--<span class="label label-success"><i class="icon-plus"></i></span>-->
+                <%= v.votable.class.name %> <%= v.votable.name %>
+                <span style="color:#9f9f9f;font-style: italic"><%= time_ago v.updated_at %></span>
+              </a>
+            </li>
+        <% end %>
+        <!--<li>-->
+        <!--<a href="#">-->
+        <!--<span class="label label-important"><i class="icon-bolt"></i></span>-->
+        <!--Server #12 overloaded.-->
+        <!--<span class="time">15 mins</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a href="#">-->
+        <!--<span class="label label-warning"><i class="icon-bell"></i></span>-->
+        <!--Server #2 not respoding.-->
+        <!--<span class="time">22 mins</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a href="#">-->
+        <!--<span class="label label-info"><i class="icon-bullhorn"></i></span>-->
+        <!--Application error.-->
+        <!--<span class="time">40 mins</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a href="#">-->
+        <!--<span class="label label-important"><i class="icon-bolt"></i></span>-->
+        <!--Database overloaded 68%.-->
+        <!--<span class="time">2 hrs</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<a href="#">-->
+        <!--<span class="label label-important"><i class="icon-bolt"></i></span>-->
+        <!--2 user IP blocked.-->
+        <!--<span class="time">5 hrs</span>-->
+        <!--</a>-->
+        <!--</li>-->
+        <li class="external">
+          <a href="#">See all votes <i class="m-icon-swapright"></i></a>
+        </li>
+      </ul>
     </li>
-    <li>
-      <a href="#">
-        <span class="label label-important"><i class="icon-bolt"></i></span>
-        Server #12 overloaded.
-        <span class="time">15 mins</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="label label-warning"><i class="icon-bell"></i></span>
-        Server #2 not respoding.
-        <span class="time">22 mins</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="label label-info"><i class="icon-bullhorn"></i></span>
-        Application error.
-        <span class="time">40 mins</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="label label-important"><i class="icon-bolt"></i></span>
-        Database overloaded 68%.
-        <span class="time">2 hrs</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <span class="label label-important"><i class="icon-bolt"></i></span>
-        2 user IP blocked.
-        <span class="time">5 hrs</span>
-      </a>
-    </li>
-    <li class="external">
-      <a href="#">See all notifications <i class="m-icon-swapright"></i></a>
-    </li>
-  </ul>
-</li>
+<% end %>

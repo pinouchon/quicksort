@@ -28,9 +28,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    if !(user_signed_in? && (current_user == @comment.user || current_user.moderator?))
+      render status: :forbidden, text: "You don't have rights to delete this comment"
+      return
+    end
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to topic_path @comment.post }
+      format.html { redirect_to topic_path @comment.post.topic }
       #format.json { head :no_content }
     end
   end
