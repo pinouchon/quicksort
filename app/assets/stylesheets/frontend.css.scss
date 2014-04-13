@@ -1,5 +1,6 @@
 .link {
-  margin-top: 9px;
+  padding: 9px 2px 0 6px;
+  width: 99%
   /*padding-left: 8px;*/
 }
 
@@ -12,7 +13,7 @@
 }
 
 hr.nomargin {
-  margin: 2px 0 0 0;
+  margin: 1px 0 0 0;
 }
 
 a.link-link:visited, a.violet:visited {
@@ -154,11 +155,22 @@ blockquote {
 #body .unseen:hover {
   background-color: rgb(217, 230, 238);
 }
+
 #header_notification_bar {
   .green {
     color: green;
   }
   .red {
-    color : #d10004;
+    color: #d10004;
+  }
+}
+
+.link, .topic, .comment {
+  &:target {
+    box-shadow: inset 0px 0px 1px 0px #c7d5d6;
+    background-color: #f6faff;
+    .comment:hover {
+      background-color: #f6faff;
+    }
   }
 }

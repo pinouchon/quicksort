@@ -22,4 +22,8 @@ class Topic < ActiveRecord::Base
     name
   end
 
+  def url_suffix
+    "topic-#{id}"
+  end
+
 end

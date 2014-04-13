@@ -7,49 +7,72 @@
   </a>
   <ul class="dropdown-menu extended inbox">
     <li>
-      <p><%= @unseen_replies.count %> new replies</p>
+      <p>
+        <%= @unseen_replies.count == 0 ? 'N' : "#{@unseen_replies.count} n" %>ew replies
+      </p>
     </li>
-    <li>
-      <a href="inbox.html?a=view">
-        <span class="photo"><img src="/assets/img/avatar.png" alt="" style="opacity: 0.6"/></span>
-								<span class="subject">
-								<span class="from">Lisa Wong</span>
-								<span style="font-style: italic;color:#9f9f9f;float: right">Just Now</span>
-								</span>
-								<span class="message">
-								Vivamus sed auctor nibh congue nibh. auctor nibh
-								auctor nibh...
-								</span>
-      </a>
-    </li>
-    <li>
-      <a href="inbox.html?a=view">
-        <span class="photo"><img src="/assets/img/avatar3.jpg" alt=""/></span>
-								<span class="subject">
-								<span class="from">Richard Doe</span>
-								<span class="time">16 mins</span>
-								</span>
-								<span class="message">
-								Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh
-								auctor nibh...
-								</span>
-      </a>
-    </li>
-    <li>
-      <a href="inbox.html?a=view">
-        <span class="photo"><img src="/assets/img/avatar1.jpg" alt=""/></span>
-								<span class="subject">
-								<span class="from">Bob Nilson</span>
-								<span class="time">2 hrs</span>
-								</span>
-								<span class="message">
-								Vivamus sed nibh auctor nibh congue nibh. auctor nibh
-								auctor nibh...
-								</span>
-      </a>
-    </li>
+    <% @recent_replies.each do |r| %>
+        <li>
+          <a href="<%= topic_path(r.class == Comment ? r.post.topic : r.topic) + '#' + r.url_suffix %>"
+             class="<%= 'unseen' if r.updated_at > current_user.checked_reputation_at %>">
+            <!--<span class="photo"><img src="/assets/img/avatar.png" alt="" style="opacity: 0.6"/></span>-->
+            <span class="subject">
+              <i class="<%= {Link: 'icon-link', Comment: 'icon-comments-alt'}[r.class.name.to_sym] %>"
+                 style="color:green"></i>
+              New <%= r.class.name %>
+              <!--<span class="from">Lisa Wong</span>-->
+              <span style="font-style: italic;color:#9f9f9f;float: right">
+                <%= time_ago(r.updated_at) %>
+              </span>
+              <% if r.class == Link %>
+                  <br/>
+                  <span class="from">
+                    <%= r.name %>   dfsdf sdf sdfsdf sdf sdf sdf dsf sdf
+                  </span>
+              <% end %>
+              <% if r.class == Comment %>
+                  <br/>
+                  <span class="from">
+                    <%= r.post.name %>
+                  </span>
+              <% end %>
+            </span>
+
+            <span class="message">
+              <%= r.class == Comment ? r.content : r.description %>
+            </span>
+          </a>
+        </li>
+    <% end %>
+
+    <!--<li>-->
+    <!--<a href="inbox.html?a=view">-->
+    <!--<span class="photo"><img src="/assets/img/avatar3.jpg" alt=""/></span>-->
+    <!--<span class="subject">-->
+    <!--<span class="from">Richard Doe</span>-->
+    <!--<span class="time">16 mins</span>-->
+    <!--</span>-->
+    <!--<span class="message">-->
+    <!--Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh-->
+    <!--auctor nibh...-->
+    <!--</span>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="inbox.html?a=view">-->
+    <!--<span class="photo"><img src="/assets/img/avatar1.jpg" alt=""/></span>-->
+    <!--<span class="subject">-->
+    <!--<span class="from">Bob Nilson</span>-->
+    <!--<span class="time">2 hrs</span>-->
+    <!--</span>-->
+    <!--<span class="message">-->
+    <!--Vivamus sed nibh auctor nibh congue nibh. auctor nibh-->
+    <!--auctor nibh...-->
+    <!--</span>-->
+    <!--</a>-->
+    <!--</li>-->
     <li class="external">
-      <a href="inbox.html">See all messages <i class="m-icon-swapright"></i></a>
+      <a href="inbox.html">See all replies <i class="m-icon-swapright"></i></a>
     </li>
   </ul>
 </li>

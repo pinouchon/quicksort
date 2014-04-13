@@ -11,4 +11,8 @@ class Comment < ActiveRecord::Base
   def set_target_user_id
     self.target_user_id = self.post.user_id
   end
+
+  def url_suffix
+    "comment-#{id}"
+  end
 end

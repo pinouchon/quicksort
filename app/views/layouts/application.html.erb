@@ -25,8 +25,8 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="fixed-top" id="body" data-signed-in='<%= user_signed_in?.to_s %>'>
-<div class="header navbar navbar-inverse navbar-fixed-top">
+<body class="static-top" id="body" data-signed-in='<%= user_signed_in?.to_s %>'>
+<div class="header navbar navbar-inverse navbar-static-top">
   <div class="navbar-inner">
     <div class="container-fluid">
       <%= render partial: 'layouts/logo' %>

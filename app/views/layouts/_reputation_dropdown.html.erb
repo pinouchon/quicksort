@@ -20,7 +20,9 @@
                 </span>
                 <!--<span class="label label-success"><i class="icon-plus"></i></span>-->
                 <%= v.votable.class.name %> <%= v.votable.name %>
-                <span style="color:#9f9f9f;font-style: italic"><%= time_ago v.updated_at %></span>
+                <span style="color:#9f9f9f;font-style: italic" class="nowrap">
+                  <%= time_ago v.updated_at %>
+                </span>
               </a>
             </li>
         <% end %>

@@ -15,4 +15,8 @@ class Link < ActiveRecord::Base
     href.start_with?('http://') ? href : 'http://' + href
   end
 
+  def url_suffix
+    "link-#{id}"
+  end
+
 end

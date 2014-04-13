@@ -48,8 +48,8 @@ var app = {
     $(".my_wmd").wmd();
   },
 
-  initCheckNotifications: function() {
-    $('#header_notification_bar').click(function() {
+  initCheckNotifications: function () {
+    $('#header_notification_bar, #header_inbox_bar').click(function () {
       var $button = $(this);
       $.ajax({
         type: 'POST',
