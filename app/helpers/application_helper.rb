@@ -31,5 +31,10 @@ module ApplicationHelper
     end
   end
 
+  def votable_path(votable)
+    return topic_path(votable) if votable.class == Topic
+    return link_path(votable) if votable.class == Link
+    return comment_path(votable) if votable.class == Comment
+  end
 
 end
