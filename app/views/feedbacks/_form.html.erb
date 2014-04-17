@@ -1,0 +1,24 @@
+<% if (@feedback ||= Feedback.new).new_record? %>
+    <%= simple_form_for(@feedback, remote: true) do |f| %>
+        <div style="margin-bottom: 4px;color:#b94a48">
+          <%= @feedback.errors.full_messages.join('<br/>').html_safe %>
+        </div>
+        <div class="control-group <%= 'error' if f.error :email %>" style="margin: 0">
+          <div class="input-icon left">
+            <i class="icon-envelope"></i>
+            <%= f.input_field :email, class: 'm-wrap span12', placeholder: 'Email' %>
+          </div>
+        </div>
+
+        <div class="control-group <%= 'error' if f.error :content %>">
+          <div class="controls">
+            <%= f.input_field :content, class: 'span12 m-wrap error', placeholder: 'Your message', rows: 3,
+                              style: 'margin:0' %>
+          </div>
+        </div>
+
+        <%= f.button :submit, 'Submit', class: 'btn' %>
+    <% end %>
+<% else %>
+    Thank you for your feedback
+<% end %>

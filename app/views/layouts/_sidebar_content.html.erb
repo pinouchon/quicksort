@@ -28,19 +28,8 @@
   <div class="portlet-body">
     <h4>Like the site? Suggestions?</h4>
 
-    <form action="#">
-      <div class="input-icon left">
-        <i class="icon-envelope"></i>
-        <input type="password" class="m-wrap span12" placeholder="Email"/>
-      </div>
-
-      <div class="control-group">
-        <div class="controls">
-          <textarea class="span12 m-wrap" rows="3" placeholder="Your message"></textarea>
-        </div>
-      </div>
-
-      <button type="submit" class="btn">Submit</button>
-    </form>
+    <div id="feedback_form_container">
+      <%= render partial: 'feedbacks/form' %>
+    </div>
   </div>
 </div>

@@ -1,5 +1,8 @@
 Quicksort::Application.routes.draw do
 
+  resources :feedbacks
+
+
   devise_for :users
 
   devise_for :users do

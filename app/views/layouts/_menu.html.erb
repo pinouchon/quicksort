@@ -12,37 +12,46 @@
         </form>
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
       </li>
-      <li class="<%= 'active' if @params[:controller] == 'topics' %>">
+      <li class="<%= 'active' if @params[:controller] == 'topics' && params['action'] != 'new' %>">
         <a href="<%= root_path %>">
           Topics
-          <% if @params[:controller] == 'topics' %>
+          <% if @params[:controller] == 'topics' && params['action'] != 'new' %>
               <span class="selected"></span>
           <% end %>
         </a>
       </li>
       <li class="<%= 'active' if @params[:controller] == 'abouts' %>">
         <a href="<%= about_path %>">
-        ¿ WTF ?
-        <% if @params[:controller] == 'abouts' %>
-            <span class="selected"></span>
-        <% end %>
-      </a>
+          <i class="icon-question-sign"></i> About
+          <% if @params[:controller] == 'abouts' %>
+              <span class="selected"></span>
+          <% end %>
+        </a>
       </li>
       <li class="<%= 'active' if @params[:controller] == 'users' %>">
         <a href="<%= users_path %>">
-        Users
-        <% if @params[:controller] == 'users' %>
-            <span class="selected"></span>
-        <% end %>
-      </a>
+          Users
+          <% if @params[:controller] == 'users' %>
+              <span class="selected"></span>
+          <% end %>
+        </a>
       </li>
       <li>
         <a href="#">
-        Empty topics
-        <% if false %>
-            <span class="selected"></span>
-        <% end %>
-      </a>
+          Empty topics
+          <% if false %>
+              <span class="selected"></span>
+          <% end %>
+        </a>
+      </li>
+
+      <li class="<%= 'active' if @params[:controller] == 'topics' && @params['action'] == 'new' %>">
+        <a href="<%= new_topic_path %>">
+          <i class="icon-plus-sign"></i> New topic
+          <% if @params[:controller] == 'topics' && @params['action'] == 'new' %>
+              <span class="selected"></span>
+          <% end %>
+        </a>
       </li>
       <% if false %>
           <li>
