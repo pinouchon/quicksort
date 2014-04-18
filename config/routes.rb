@@ -27,6 +27,7 @@ Quicksort::Application.routes.draw do
       get :form
     end
     collection do
+      get :empty
     end
   end
   get 'topics/:id/:slug', to: 'topics#show'

@@ -12,10 +12,10 @@
         </form>
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
       </li>
-      <li class="<%= 'active' if @params[:controller] == 'topics' && params['action'] != 'new' %>">
+      <li class="<%= 'active' if @params[:controller] == 'topics' && params[:action] != 'new' && params[:action] != 'empty' %>">
         <a href="<%= root_path %>">
           Topics
-          <% if @params[:controller] == 'topics' && params['action'] != 'new' %>
+          <% if @params[:controller] == 'topics' && params['action'] != 'new' && params[:action] != 'empty' %>
               <span class="selected"></span>
           <% end %>
         </a>
@@ -36,10 +36,10 @@
           <% end %>
         </a>
       </li>
-      <li>
-        <a href="#">
+      <li class="<%= 'active' if @params[:controller] == 'topics' && params[:action] == 'empty' %>">
+        <a href="<%= empty_topics_path %>">
           Empty topics
-          <% if false %>
+          <% if @params[:controller] == 'topics' && params[:action] == 'empty' %>
               <span class="selected"></span>
           <% end %>
         </a>

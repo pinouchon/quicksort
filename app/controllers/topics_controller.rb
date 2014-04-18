@@ -8,6 +8,15 @@ class TopicsController < ApplicationController
     end
   end
 
+  def empty
+    @topics = Topic.includes(:links).where('links.id IS NULL').order('topics.created_at DESC').all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @topics }
+    end
+  end
+
   def show
     @topic = Topic.find(params[:id])
     if request.path != topic_path(@topic)
