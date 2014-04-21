@@ -10,6 +10,21 @@ class Topic < ActiveRecord::Base
 
   validates :name, presence: {message: 'Topic title cannot be blank'}
 
+  # scope :top5,
+  #       select("songs.id, OTHER_ATTRS_YOU_NEED, count(listens.id) AS listens_count").
+  #           joins(:listens).
+  #           group("songs.id").
+  #           order("listens_count DESC").
+  #           limit(5)
+  def links_sorted_by_vote
+    links
+    # select("songs.id, OTHER_ATTRS_YOU_NEED, count(listens.id) AS listens_count").
+    #     joins(:listens).
+    #     group("songs.id").
+    #     order("listens_count DESC").
+    #     limit(5)
+  end
+
   def to_param
     "#{id}-#{name.parameterize}"
   end

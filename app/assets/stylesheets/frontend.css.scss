@@ -1,3 +1,24 @@
+.page-container {
+  max-width: 1090px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1090px) {
+  body {
+    background-color: white !important;
+  }
+}
+
+.header-inner {
+  max-width: 1045px;
+  margin: 0 auto;
+}
+
+//.header .nav > li.dropdown, .header .nav > li.dropdown > a {
+//  padding-left: 0px;
+//  padding-right: 0px;
+//}
+
 .link {
   padding: 9px 2px 0 6px;
   width: 99%

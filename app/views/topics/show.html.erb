@@ -45,7 +45,7 @@
     <% if @topic.links.empty? %>
         <p class="alert alert-info">This topic doesn't have any links yet</p>
     <% end %>
-    <%= render partial: 'links/links', locals: {links: @topic.links} %>
+    <%= render partial: 'links/links', locals: {links: @topic.links_sorted_by_vote} %>
     <%= render partial: 'links/form_with_wrapper' %>
   </div>
 </div>
