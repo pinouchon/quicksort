@@ -165,6 +165,10 @@ blockquote {
   }
 }
 
+.topic {
+  margin: 0 0 0 10px;
+}
+
 .link, .topic, .comment {
   &:target {
     box-shadow: inset 0px 0px 1px 0px #c7d5d6;
@@ -172,6 +176,12 @@ blockquote {
     .comment:hover {
       background-color: #f6faff;
     }
+  }
+  blockquote p {
+    margin-bottom: 0;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.3;
   }
 }
 

@@ -4,7 +4,7 @@
   <div>
     posted:
     <% if Time.now - created_at < 1.day %>
-        <%= time_ago(created_at) %> ago
+        <%= time_ago(created_at) %>
     <% else %>
         <%= created_at.strftime('%d %b %Y at %H:%M') %>
     <% end %>
