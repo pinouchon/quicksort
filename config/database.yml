@@ -28,6 +28,7 @@ production:
   reconnect: false
   database: quicksort
   pool: 5
-  username: root
-  password: ''
-  socket: /tmp/mysql.sock
+  username: quicksort
+  password: sortquick
+  # see http://stackoverflow.com/questions/5499035
+  socket: /var/run/mysqld/mysqld.sock
