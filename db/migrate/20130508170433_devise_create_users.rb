@@ -14,6 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       #
       #
 
+      # see https://github.com/plataformatec/devise/wiki/How-To%3a-Upgrade-to-Devise-2.0-migration-schema-style
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
 
