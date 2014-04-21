@@ -12,7 +12,7 @@ class Link < ActiveRecord::Base
   validates_presence_of :href
 
   def href_with_protocol
-    href.start_with?('http://') ? href : 'http://' + href
+    href.start_with?('http') ? href : 'http://' + href
   end
 
   def url_suffix
