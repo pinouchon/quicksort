@@ -1,5 +1,5 @@
 class Topic < ActiveRecord::Base
-  attr_accessible :description, :name
+  attr_accessible :user_id, :description, :name
 
   has_many :links, dependent: :destroy
   has_many :votes, as: :votable, dependent: :destroy

@@ -1,5 +1,5 @@
 class Link < ActiveRecord::Base
-  attr_accessible :description, :name, :href, :topic_id
+  attr_accessible :user_id, :description, :name, :href, :topic_id
 
   belongs_to :topic
   belongs_to :user
