@@ -2,8 +2,9 @@ Quicksort::Application.routes.draw do
 
   resources :feedbacks
 
+  root to: 'topics#index'
 
-  devise_for :users
+  resources :feedbacks
 
   devise_for :users do
     get '/users', to: 'devise/registrations#new'
@@ -45,8 +46,6 @@ Quicksort::Application.routes.draw do
 
   resource :about
 
-
-  root to: 'topics#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

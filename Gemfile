@@ -15,6 +15,7 @@ group :development, :staging do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rails_panel'
+  gem 'awesome_print'
 end
 
 
@@ -31,7 +32,7 @@ group :assets do
 end
 
 gem 'thin'
-gem 'jquery-rails'
+gem 'jquery-rails', "< 3.0.0"
 gem 'simple_form'
 gem 'paper_trail'
 gem 'merit'
