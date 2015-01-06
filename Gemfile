@@ -32,7 +32,7 @@ group :assets do
 end
 
 gem 'thin'
-gem 'jquery-rails', "< 3.0.0"
+gem 'jquery-rails', '= 2.1.4'
 gem 'simple_form'
 gem 'paper_trail'
 gem 'merit'

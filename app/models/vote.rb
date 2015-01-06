@@ -3,7 +3,7 @@ class Vote < ActiveRecord::Base
   belongs_to :votable, polymorphic: true
   belongs_to :user
 
-  belongs_to :target_user, primary_key: 'target_user_id', foreign_key: 'id', class_name: 'User'
+  belongs_to :target_user, primary_key: 'target_user_id', foreign_key: 'id', class_name: User
 
   before_save :set_target_user_id
 

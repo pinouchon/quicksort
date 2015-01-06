@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post, polymorphic: true
   has_many :votes, as: :votable, dependent: :destroy
-  belongs_to :target_user, primary_key: 'target_user_id', foreign_key: 'id', class_name: 'User'
+  belongs_to :target_user, primary_key: 'target_user_id', foreign_key: 'id', class_name: User
 
   before_save :set_target_user_id
 
