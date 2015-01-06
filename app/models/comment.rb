@@ -1,10 +1,10 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :content, :post_id, :post_type, :user_id
+  attr_accessible :content, :post_id, :post_type, :user_id, :target_user_id
 
   belongs_to :user
   belongs_to :post, polymorphic: true
   has_many :votes, as: :votable, dependent: :destroy
-  belongs_to :target_user, primary_key: 'target_user_id', foreign_key: 'id', class_name: User
+  belongs_to :target_user, primary_key: 'id', foreign_key: 'target_user_id', class_name: User
 
   before_save :set_target_user_id
 
